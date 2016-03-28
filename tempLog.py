@@ -75,7 +75,7 @@ def logTemp(temp):
 def createJob():
         cron = CronTab(user='root')
         job = cron.new(command='sudo python /home/pi/Documents/EmbeddedLinux/TempSensorProject/tempLog.py')
-        job.minute.every(1)
+        job.minute.every(10)
         job.enable()
         cron.write()
         if cron.render():
