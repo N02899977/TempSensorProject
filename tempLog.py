@@ -2,36 +2,43 @@
 
 # tempLog.py
 # Heidi Fritz
-# Log Current Time, Temperature in Celsius and Fahrenheit
-# Puts date, time, temperature in a sqlite3 database(temp.db)
+# Log Current Time, Temperature in Celsius
+# Puts date, time, temperature in a sqlite3 database(climate_info.db)
 
 import sqlite3  # must do 'sudo apt-get install sqlite'
 import os
 from crontab import CronTab  # must do 'sudo pip install python-crontab'
 import datetime
+import glob
 
 
 
-# Returns temperature in Celcius and Fahernheit in a list
-def getTemp():
-        tempfile = open("/sys/bus/w1/devices/28-000006972625/w1_slave")
-	tempfile_text = tempfile.read()
-	tempfile.close()
-	tempC=float(tempfile_text.split("\n")[1].split("t=")[1])/1000
-	tempF=tempC*9.0/5.0+32.0
-	return [tempC, tempF]
+# Returns temperature in Celcius
+def getTemp(devicefile):
+        try:
+            fileobj = open(devicefile,'r')
+            lines = fileobj.readlines()
+            fileobj.close()
+        except:
+            return None
 
-# Returns date and time in a list
-def getDatetime():
-        # Create date and time strings in Year-Month-Day and Hour:Min:Sec format
-        date = datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d')
-        time = datetime.datetime.strftime(datetime.datetime.now(), '%I:%M:%S')
-        return [date, time]
+        # get the status from the end of line 1 
+        status = lines[0][-4:-1]
+
+        # if the status is ok, get the temperature from line 2
+        if status=="YES":
+            tempstr= lines[1][-6:-1]
+            tempvalue=float(tempstr)/1000
+            print tempvalue
+            return tempvalue
+        else:
+            print "There was an error."
+            return None
         
 # Creates a database and table to log temperature and time
-def logTemp():
+def logTemp(temp):
         tableName = "Temp"
-        databaseName = '/home/pi/Documents/EmbeddedLinux/ELSpring2016/code/temp.db'
+        databaseName = '/home/pi/Documents/EmbeddedLinux/TempSensorProject/climate_info.db'
         
 	# connect to database
         conn = sqlite3.connect(databaseName)
@@ -46,17 +53,17 @@ def logTemp():
         exists = cursor.fetchone()[0]  # fetches result of query
         if not(exists):
            # there are no tables named 'Temperature'
-           conn.execute("CREATE TABLE %s(DATE TEXT, TIME TEXT, TEMPC INTEGER, TEMPF INTEGER);"
+           conn.execute("CREATE TABLE %s(DATETIME TEXT, TEMPVALUE INTEGER);"
                         %tableName)
            print "Table created."
-           conn.execute("INSERT INTO %s(DATE,TIME,TEMPC,TEMPF) VALUES (?, ?, ?, ?);"
-                        %tableName, (getDatetime()[0], getDatetime()[1], getTemp()[0], getTemp()[1]))
+           conn.execute("INSERT INTO %s VALUES(datetime('now'), (?));"
+                        %tableName, (temp,))
            conn.commit()
            print "Temp recorded in " + tableName + "."
         else:
            # there is a table named 'Temperature'
-           conn.execute("INSERT INTO %s(DATE,TIME,TEMPC,TEMPF) VALUES (?, ?, ?, ?);"
-                        %tableName, (getDatetime()[0], getDatetime()[1], getTemp()[0], getTemp()[1]))
+           conn.execute("INSERT INTO %s VALUES(datetime('now'), (?));"
+                        %tableName, (temp,))
            conn.commit()
            print "Temp recorded in" + tableName + "."
               
@@ -67,7 +74,7 @@ def logTemp():
 # Creates a cron job to run this file
 def createJob():
         cron = CronTab(user='root')
-        job = cron.new(command='sudo python /home/pi/Documents/EmbeddedLinux/ELSpring2016/code/tempLog.py')
+        job = cron.new(command='sudo python /home/pi/Documents/EmbeddedLinux/TempSensorProject/tempLog.py')
         job.minute.every(1)
         job.enable()
         cron.write()
@@ -78,12 +85,27 @@ def createJob():
 
 # Checks for a cron job. Calls createJob() if job exists otherwise calls logTemp()
 def run():
+        # enable kernel modules
+        os.system('sudo modprobe w1-gpio')
+        os.system('sudo modprobe w1-therm')
+
+        # search for a device file that starts with 28
+        devicelist = glob.glob('/sys/bus/w1/devices/28*')
+        if devicelist=='':
+            return None
+        else:
+            # append /w1slave to the device file
+            w1devicefile = devicelist[0] + '/w1_slave'
+
+        # get the temperature from the device file
+        temperature = getTemp(w1devicefile)
+        
         cron = CronTab(user='root')
         # check if cronjob exists
         if not cron.render():    
             createJob()
         else:
-            logTemp()
+            logTemp(temperature)
         return 0
 
 run()
