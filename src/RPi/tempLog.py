@@ -1,9 +1,10 @@
 #!/usr/bin/python
 
-# tempLog.py
-# Heidi Fritz
-# Log Current Time, Temperature in Celsius
-# Puts date, time, temperature in a sqlite3 database(climate_info.db)
+"""tempLog.py: Logs Current Time and Temperature in Celsius. 
+   Puts datetime and temperature in a sqlite3 database(climate_info.db)"""
+
+__author__ = "Heidi Fritz"
+__since__ = "2016 Apr 7"
 
 import sqlite3  # must do 'sudo apt-get install sqlite'
 import os
@@ -37,8 +38,8 @@ def getTemp(devicefile):
         
 # Creates a database and table to log temperature and time
 def logTemp(temp):
-        tableName = "Temp"
-        databaseName = '/home/pi/Documents/EmbeddedLinux/TempSensorProject/climate_info.db'
+        tableName = "climate"
+        databaseName = '/home/pi/climate/climate_info.db'
         
 	# connect to database
         conn = sqlite3.connect(databaseName)
@@ -53,16 +54,16 @@ def logTemp(temp):
         exists = cursor.fetchone()[0]  # fetches result of query
         if not(exists):
            # there are no tables named 'Temperature'
-           conn.execute("CREATE TABLE %s(DATETIME TEXT, TEMPVALUE INTEGER);"
+           conn.execute("CREATE TABLE %s(timestamp NUMERIC NOT NULL DEFAULT( datetime('now','localtime')), temperature REAL);"
                         %tableName)
            print "Table created."
-           conn.execute("INSERT INTO %s VALUES(datetime('now'), (?));"
+           conn.execute("INSERT INTO %s (temperature)VALUES((?));"
                         %tableName, (temp,))
            conn.commit()
            print "Temp recorded in " + tableName + "."
         else:
            # there is a table named 'Temperature'
-           conn.execute("INSERT INTO %s VALUES(datetime('now'), (?));"
+           conn.execute("INSERT INTO %s (temperature)VALUES((?));"
                         %tableName, (temp,))
            conn.commit()
            print "Temp recorded in" + tableName + "."
@@ -74,7 +75,7 @@ def logTemp(temp):
 # Creates a cron job to run this file
 def createJob():
         cron = CronTab(user='root')
-        job = cron.new(command='sudo python /home/pi/Documents/EmbeddedLinux/TempSensorProject/tempLog.py')
+        job = cron.new(command='sudo python /home/pi/climate/tempLog.py')
         job.minute.every(10)
         job.enable()
         cron.write()
