@@ -1,0 +1,329 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.24)  30 APR 2016 13:10
+entering extended mode
+**./report.tex
+(report.tex
+LaTeX2e <2015/10/01> patch level 2
+Babel <3.9n> and hyphenation patterns for 69 languages loaded.
+("C:\Users\Jabari\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\article.cls"
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+("C:\Users\Jabari\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\size10.clo"
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Users\Jabari\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphicx
+.sty"
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\Jabari\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\keyval.s
+ty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("C:\Users\Jabari\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphics
+.sty"
+Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\Jabari\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\trig.sty
+"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Users\Jabari\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\graphics
+.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 94.
+
+("C:\Users\Jabari\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pdftex-def\pdftex
+.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("C:\Users\Jabari\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\infwar
+err.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Users\Jabari\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ltxcmd
+s.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+("C:\Users\Jabari\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr
+.sty"
+\fancy@headwidth=\skip43
+\f@ncyO@elh=\skip44
+\f@ncyO@erh=\skip45
+\f@ncyO@olh=\skip46
+\f@ncyO@orh=\skip47
+\f@ncyO@elf=\skip48
+\f@ncyO@erf=\skip49
+\f@ncyO@olf=\skip50
+\f@ncyO@orf=\skip51
+)
+("C:\Users\Jabari\AppData\Local\Programs\MiKTeX 2.9\tex\latex\enumitem\enumitem
+.sty"
+Package: enumitem 2011/09/28 v3.5.2 Customized lists
+\labelindent=\skip52
+\enit@outerparindent=\dimen105
+\enit@toks=\toks15
+\enit@inbox=\box26
+\enitdp@description=\count88
+)
+("C:\Users\Jabari\AppData\Local\Programs\MiKTeX 2.9\tex\latex\caption\caption.s
+ty"
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+("C:\Users\Jabari\AppData\Local\Programs\MiKTeX 2.9\tex\latex\caption\caption3.
+sty"
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen106
+\captionmargin@=\dimen107
+\captionwidth=\dimen108
+\caption@tempdima=\dimen109
+\caption@indent=\dimen110
+\caption@parindent=\dimen111
+\caption@hangindent=\dimen112
+)
+\c@ContinuedFloat=\count89
+)
+("C:\Users\Jabari\AppData\Local\Programs\MiKTeX 2.9\tex\latex\float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count90
+\float@exts=\toks16
+\float@box=\box27
+\@float@everytoks=\toks17
+\@floatcapt=\box28
+) (report.aux)
+\openout1 = `report.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+
+("C:\Users\Jabari\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.m
+kii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count91
+\scratchdimen=\dimen113
+\scratchbox=\box29
+\nofMPsegments=\count92
+\nofMParguments=\count93
+\everyMPshowfont=\toks18
+\MPscratchCnt=\count94
+\MPscratchDim=\dimen114
+\MPnumerator=\count95
+\makeMPintoPDFobject=\count96
+\everyMPtoPDFconversion=\toks19
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: End \AtBeginDocument code.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
+(Font)              using `OT1/cmr/bx/n' instead on input line 19.
+
+<rpi.jpg, id=1, 1927.2pt x 1284.8pt>
+File: rpi.jpg Graphic file (type jpg)
+ <use rpi.jpg>
+Package pdftex.def Info: rpi.jpg used on input line 21.
+(pdftex.def)             Requested size: 289.06754pt x 192.71169pt.
+ [1
+
+{C:/Users/Jabari/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./rpi.jpg>
+] (report.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 4.
+)
+\tf@toc=\write3
+\openout3 = `report.toc'.
+
+ [1]
+[2] <brendan.jpg, id=17, 1927.2pt x 1284.8pt>
+File: brendan.jpg Graphic file (type jpg)
+ <use brendan.jpg>
+Package pdftex.def Info: brendan.jpg used on input line 59.
+(pdftex.def)             Requested size: 134.91779pt x 89.94519pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 59--61
+
+ []
+
+<heidi.jpg, id=18, 1927.2pt x 1284.8pt>
+File: heidi.jpg Graphic file (type jpg)
+ <use heidi.jpg>
+Package pdftex.def Info: heidi.jpg used on input line 65.
+(pdftex.def)             Requested size: 134.91779pt x 89.94519pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--68
+
+ []
+
+<roberto.jpg, id=19, 1927.2pt x 1284.8pt>
+File: roberto.jpg Graphic file (type jpg)
+ <use roberto.jpg>
+Package pdftex.def Info: roberto.jpg used on input line 72.
+(pdftex.def)             Requested size: 134.91779pt x 89.94519pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 72--74
+
+ []
+
+
+Underfull \hbox (badness 4303) in paragraph at lines 74--74
+[]|\OT1/cmr/m/n/10 Roberto han-dled front-end pro-
+ []
+
+<cesar.jpg, id=20, 1927.2pt x 1284.8pt>
+File: cesar.jpg Graphic file (type jpg)
+ <use cesar.jpg>
+Package pdftex.def Info: cesar.jpg used on input line 83.
+(pdftex.def)             Requested size: 134.91779pt x 89.94519pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--85
+
+ []
+
+<jabari.jpg, id=21, 1927.2pt x 1284.8pt>
+File: jabari.jpg Graphic file (type jpg)
+ <use jabari.jpg>
+Package pdftex.def Info: jabari.jpg used on input line 89.
+(pdftex.def)             Requested size: 134.91779pt x 89.94519pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--91
+
+ []
+
+<victoria.jpg, id=22, 1927.2pt x 1284.8pt>
+File: victoria.jpg Graphic file (type jpg)
+ <use victoria.jpg>
+Package pdftex.def Info: victoria.jpg used on input line 95.
+(pdftex.def)             Requested size: 134.91779pt x 89.94519pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--97
+
+ []
+
+
+Underfull \hbox (badness 2205) in paragraph at lines 97--97
+[]|\OT1/cmr/m/n/10 Vic-to-ria han-dled client-side pro-
+ []
+
+
+Overfull \vbox (6.53831pt too high) has occurred while \output is active []
+
+
+[3 <./brendan.jpg> <./heidi.jpg> <./roberto.jpg> <./cesar.jpg> <./jabari.jpg> <
+./victoria.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 119--121
+
+ []
+
+<pre_deployment.jpg, id=26, 626.34pt x 352.31625pt>
+File: pre_deployment.jpg Graphic file (type jpg)
+ <use pre_deployment.jpg>
+Package pdftex.def Info: pre_deployment.jpg used on input line 124.
+(pdftex.def)             Requested size: 313.16922pt x 176.15768pt.
+
+[4 <./pre_deployment.jpg>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 136.
+
+
+("C:\Users\Jabari\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 136.
+
+[5]
+Overfull \hbox (3.52837pt too wide) in paragraph at lines 175--179
+\OT1/cmr/m/n/10 Students dis-tributed sev-eral in-ter-net con-nected Rasp-berry
+ Pi com-put-ers through-
+ []
+
+<bliss.png, id=34, 1153.911pt x 266.79675pt>
+File: bliss.png Graphic file (type png)
+ <use bliss.png>
+Package pdftex.def Info: bliss.png used on input line 182.
+(pdftex.def)             Requested size: 346.17596pt x 80.03963pt.
+
+Overfull \hbox (1.17596pt too wide) in paragraph at lines 182--184
+ [] 
+ []
+
+[6 <./bliss.png>] <breadboard.png, id=41, 286.06876pt x 386.6445pt>
+File: breadboard.png Graphic file (type png)
+
+<use breadboard.png>
+Package pdftex.def Info: breadboard.png used on input line 200.
+(pdftex.def)             Requested size: 228.85532pt x 309.31601pt.
+ [7 <./breadboard.png>]
+<tempLogFlowchart.png, id=46, 355.3275pt x 1158.3275pt>
+File: tempLogFlowchart.png Graphic file (type png)
+
+<use tempLogFlowchart.png>
+Package pdftex.def Info: tempLogFlowchart.png used on input line 220.
+(pdftex.def)             Requested size: 142.12846pt x 463.3228pt.
+ [8] [9 <./tempLogFlowchart.png>] [10] [11]
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+ [12]
+[13] [14] (report.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 2728 strings out of 493634
+ 42707 string characters out of 3134831
+ 106689 words of memory out of 3000000
+ 6124 multiletter control sequences out of 15000+200000
+ 6719 words of font info for 24 fonts, out of 3000000 for 9000
+ 1025 hyphenation exceptions out of 8191
+ 36i,10n,43p,4033b,427s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/Jabari/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmbx10.pfb><C:/Users/Jabari/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmbx12.pfb><C:/Users/Jabari/AppData/Local/Programs/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Jabari/AppData/Local/Pro
+grams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Jabari/AppD
+ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Use
+rs/Jabari/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy
+10.pfb>
+Output written on report.pdf (15 pages, 9501442 bytes).
+PDF statistics:
+ 90 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+
