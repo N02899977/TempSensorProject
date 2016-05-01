@@ -1,0 +1,85 @@
+<html>
+  <title>Average Temperature by Floor</title>	
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+    <script type="text/javascript">
+    
+    	var temperatureType = 'C';
+    	var startDate = 'Yesterday';
+    	var endDate = 'Today';
+    
+    	basementN 	= [76.125, 77.544, 79.632, 75.453];
+    	basementS 	= [76.542, 77.455, 79.322, 75.532];
+    	
+    	firstFloorN 	= [78.743, 78.556, 77.664, 80.556];
+    	firstFloorS 	= [78.002, 78.987, 77.664, 80.778];
+    	
+    	secondFloorN = [76.121, 76.453, 72.43, 76.032];
+    	secondFloorS = [76.392, 76.302, 72.044, 70.032];
+    	
+    	thirdFloorN 	= [79.303, 81.302, 75.002, 72.555];
+    	thirdFloorS 	= [79.022, 81.025, 75.394, 72.953];	  
+    	
+    	floor = [[basementN, basementS], [firstFloorN, firstFloorS] , [secondFloorN, secondFloorS],
+    			[thirdFloorN, thirdFloorS]];
+    
+    	// Returns the average value when passed an integer array
+    	function getAverage(array) {
+    		
+    		// initialize sum to 0
+    		sum = 0;
+    		
+    		// Loop through integer array, and sum all indices
+    		for (i = 0; i < array.length; i++) {
+    			sum += array[i];
+    		}
+    		
+    		// Return the sum divided by the length (average)
+    		return sum/array.length;
+    	}
+    	
+	 	// Load bar package (for drawing bar graphs)
+	 	google.charts.load('current', {'packages':['bar']});
+	  	google.charts.setOnLoadCallback(drawChart);
+	  
+	  	// Define drawChart function
+	  	function drawChart() {
+
+	    var data = google.visualization.arrayToDataTable([
+	      	['Floor', 'North Wing', 'South Wing'],
+	    	['Basement', getAverage(basementN), getAverage(basementS)],
+	      	['First', getAverage(firstFloorN), getAverage(firstFloorS)],
+	      	['Second', getAverage(secondFloorN), getAverage(secondFloorS)],
+	      	['Third', getAverage(thirdFloorN), getAverage(thirdFloorS)]
+	   	]);
+	
+	    var options = {
+	      chart: {
+	        title: 'Bliss Hall Average Temperature by Floor',
+	        subtitle: 'From ' + startDate + ' to ' + endDate,
+	      },
+	      
+	      series: {
+	      	0: {axis: 'degrees'}
+	      },
+	      
+	      axes: {
+	      	y: {
+	      		// Labels the y-axis as the degree axis
+	      		degrees: {label: 'Degrees (' + temperatureType + ')'}		
+	      	}
+	      }
+	    };
+	
+		// Draw the chart in the form of a bar chart
+	    var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+	
+	    chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="columnchart_material" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
