@@ -13,26 +13,51 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://www.google.com/jsapi"></script>
 
-    <!-- EXAMPLE SCRIPT -->
     <script>
 		google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
       // onload callback
+      
+      function GetJSONResult(url)
+		{
+		  $.getJSON(url,
+		  function(data){
+		    console.log(data);
+		   });
+		}
+		
+		//var urls = ['http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=120',
+		//'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=B03',
+		//'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=223']
+		
+		/*for (var i=0;i<urls.length;i++)
+		{ 
+		    GetJSONResult(urls[i]);
+		}*/
       function drawChart() {
 
-        var public_key = 'dZ4EVmE8yGCRGx5XRX1W';
+        var room = 120;
 
         // JSON request
-        var jsonData = $.ajax({
+        /*var jsonData = $.ajax({
           url: 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=120',
           data: {info: 1},
           dataType: 'json',
-        }).done(function (results) {
+        }).done(function (results) {*/
+       	
+       	var climate_params = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=' + room;
+			$.getJSON( climate_params, function(results){
+			
+			}).done(function(results){
 
           var data = new google.visualization.DataTable();
-
+			
+		  var temperatureType = 'C';
+    	  var startDate = 'beginning';
+    	  var endDate = 'end';
+    	  
           data.addColumn('datetime', 'Time');
-          data.addColumn('number', 'Temp');
+          data.addColumn('number', '120');
 
           results["info"].forEach(function(packet) {
 	      	data.addRow([
@@ -44,9 +69,11 @@
 
           //var chart = new google.visualization.LineChart($('#chart').get(0));
           var options = {
-          title: 'Temp vs. Time',
-          curveType: 'function',
-          legend: { position: 'bottom' }
+	        title: 'Temp vs. Time',
+	        //subtitle: 'From ' + startDate + ' to ' + endDate,
+	      	      
+	        curveType: 'function',
+	        legend: { position: 'right' }
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
@@ -69,9 +96,8 @@
   </head>
   <body>
   	<div id="top-nav"> </div>
-  	<div class="container">
-    <div id="curve_chart" style="width: 100%;"></div>
-    </div>
+    <div id="curve_chart" style="width: 100%; height: 500px;padding-top: 30px"></div>
+    
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
