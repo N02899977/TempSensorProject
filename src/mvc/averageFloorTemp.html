@@ -3,7 +3,6 @@
 <html>	
   <head>
 <<<<<<< HEAD:src/mvc/view/averageFloorTemp.html
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> 
 =======
   	<meta charset="utf-8">
     <title>Average Temperature by Floor</title>
@@ -23,36 +22,30 @@
     	var startDate = 'Yesterday';
     	var endDate = 'Today';
     
-    	// Array of temperatures for each section of the building
-    	basementN 	= [76.125, 77.544, 79.632, 75.453];
-    	basementS 	= [76.542, 77.455, 79.322, 75.532];
-    	
-    	firstFloorN 	= [78.743, 78.556, 77.664, 80.556];
-    	firstFloorS 	= [78.002, 78.987, 77.664, 80.778];
-    	
-    	secondFloorN = [76.121, 76.453, 72.43, 76.032];
-    	secondFloorS = [76.392, 76.302, 72.044, 70.032];
-    	
-    	thirdFloorN 	= [79.303, 81.302, 75.002, 72.555];
-    	thirdFloorS 	= [79.022, 81.025, 75.394, 72.953];	  
-    	
-    	//
-    	floor = [[basementN, basementS], [firstFloorN, firstFloorS] , [secondFloorN, secondFloorS],
-    			[thirdFloorN, thirdFloorS]];
-    
     	// Returns the average value when passed an integer array
-    	function getAverage(array) {
-    		
+    	function getAverage(room) {		
     		// initialize sum to 0
     		sum = 0;
+    		length = 0;
     		
-    		// Loop through integer array, and sum all indices
-    		for (i = 0; i < array.length; i++) {
-    			sum += array[i];
-    		}
-    		
+    		var climate_params = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=' + room;
+			$.getJSON( climate_params, function(results){
+			
+			}).done(function(results){
+				length = results["info"].length;
+	
+	       	  // Loop through integer array, and sum all indices
+	          results["info"].forEach(function(packet) {
+			        
+			    sum += parseFloat(packet.tempF);		   
+			    });
+	          console.log("Sum: " + sum);
+				console.log("Length: " + length);
+				console.log("Average: " + sum/length);
+			});
+
     		// Return the sum divided by the length (average)
-    		return sum/array.length;
+    		return sum/length;
     	}
     	
 	 	// Load bar package (for drawing bar graphs)
@@ -66,12 +59,12 @@
 			// throughout the building
 		    var data = google.visualization.arrayToDataTable([
 		      	['Floor', 'North Wing', 'South Wing'],
-		    	['Basement', getAverage(basementN), getAverage(basementS)],
-		      	['First', getAverage(firstFloorN), getAverage(firstFloorS)],
-		      	['Second', getAverage(secondFloorN), getAverage(secondFloorS)],
-		      	['Third', getAverage(thirdFloorN), getAverage(thirdFloorS)]
+		    	['Basement', getAverage(108), getAverage(108)],
+		      	['First', getAverage(108), getAverage(120)],
+		      	['Second', getAverage(209), getAverage(223)],
+		      	['Third', getAverage(308), getAverage(323)]
 		   	]);
-		
+
 		    var options = {
 		      chart: {
 		        title: 'Bliss Hall Average Temperature by Floor',
