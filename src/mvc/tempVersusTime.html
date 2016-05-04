@@ -1,0 +1,113 @@
+  <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+  <html>
+  <head>
+  	<meta charset="utf-8">
+    <title>Temperature Sensor Data Site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <!-- EXTERNAL LIBS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://www.google.com/jsapi"></script>
+
+    <script>
+		google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      // onload callback
+      
+      function GetJSONResult(url)
+		{
+		  $.getJSON(url,
+		  function(data){
+		    console.log(data);
+		   });
+		}
+		
+		//var urls = ['http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=120',
+		//'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=B03',
+		//'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=223']
+		
+		/*for (var i=0;i<urls.length;i++)
+		{ 
+		    GetJSONResult(urls[i]);
+		}*/
+      function drawChart() {
+
+        var room = 120;
+
+        // JSON request
+        /*var jsonData = $.ajax({
+          url: 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=120',
+          data: {info: 1},
+          dataType: 'json',
+        }).done(function (results) {*/
+       	
+       	var climate_params = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=' + room;
+			$.getJSON( climate_params, function(results){
+			
+			}).done(function(results){
+
+          var data = new google.visualization.DataTable();
+			
+		  var temperatureType = 'C';
+    	  var startDate = 'beginning';
+    	  var endDate = 'end';
+    	  
+          data.addColumn('datetime', 'Time');
+          data.addColumn('number', '120');
+
+          results["info"].forEach(function(packet) {
+	      	data.addRow([
+		          (new Date(packet.time)),
+		          parseFloat(packet.tempF),
+		        ]);
+		    });
+          
+
+          //var chart = new google.visualization.LineChart($('#chart').get(0));
+          var options = {
+	        title: 'Temp vs. Time',
+	        //subtitle: 'From ' + startDate + ' to ' + endDate,
+	      	      
+	        curveType: 'function',
+	        legend: { position: 'right' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+
+        });
+
+      }
+
+      // load chart lib
+      google.load('visualization', '1', {
+        packages: ['corechart']
+      });
+
+      // call drawChart once google charts is loaded
+      google.setOnLoadCallback(drawChart);
+
+    </script>
+  </head>
+  <body>
+  	<div id="top-nav"> </div>
+    <div id="curve_chart" style="width: 100%; height: 500px;padding-top: 30px"></div>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.4.0/holder.js"></script>
+    <script type="text/javascript">
+			$(function(){
+				$("#top-nav").load("inc/nav.php", function(){
+					$(".temptime").addClass("active");					
+				});
+			});
+	</script>
+  </body>
+</html>
