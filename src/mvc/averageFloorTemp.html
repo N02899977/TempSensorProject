@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/main.css">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="controller/getJSON.js"></script>
 >>>>>>> 88e85a38a053bbaa8b79b2267033b45cbac35c8d:src/mvc/averageFloorTemp.html
     <script type="text/javascript">
     
@@ -21,32 +22,6 @@
     	// Beginning and Finish date to show temperature data from
     	var startDate = 'Yesterday';
     	var endDate = 'Today';
-    
-    	// Returns the average value when passed an integer array
-    	function getAverage(room) {		
-    		// initialize sum to 0
-    		sum = 0;
-    		length = 0;
-    		
-    		var climate_params = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=' + room;
-			$.getJSON( climate_params, function(results){
-			
-			}).done(function(results){
-				length = results["info"].length;
-	
-	       	  // Loop through integer array, and sum all indices
-	          results["info"].forEach(function(packet) {
-			        
-			    sum += parseFloat(packet.tempF);		   
-			    });
-	          console.log("Sum: " + sum);
-				console.log("Length: " + length);
-				console.log("Average: " + sum/length);
-			});
-
-    		// Return the sum divided by the length (average)
-    		return sum/length;
-    	}
     	
 	 	// Load bar package (for drawing bar graphs)
 	 	google.charts.load('current', {'packages':['bar']});
@@ -57,14 +32,15 @@
 
 			// Input the data based off the average of each array of temperatures for each location
 			// throughout the building
+			
 		    var data = google.visualization.arrayToDataTable([
 		      	['Floor', 'North Wing', 'South Wing'],
-		    	['Basement', getAverage(108), getAverage(108)],
+		    	['Basement', getAverage('B03'), getAverage('B03')],
 		      	['First', getAverage(108), getAverage(120)],
 		      	['Second', getAverage(209), getAverage(223)],
 		      	['Third', getAverage(308), getAverage(323)]
-		   	]);
-
+		   	]); 
+		
 		    var options = {
 		      chart: {
 		        title: 'Bliss Hall Average Temperature by Floor',
