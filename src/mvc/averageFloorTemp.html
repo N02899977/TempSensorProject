@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/main.css">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="controller/getJSON.js"></script>
+    <script type="text/javascript" src="controller/getTempJSON.js"></script>
 >>>>>>> 88e85a38a053bbaa8b79b2267033b45cbac35c8d:src/mvc/averageFloorTemp.html
     <script type="text/javascript">
     
@@ -29,16 +29,21 @@
 	  
 	  	// Define drawChart function
 	  	function drawChart() {
+	  		
+	  		var averageTemp = [getAverage('B03'), getAverage('B03'),
+	  		                   getAverage(108), getAverage(120),
+	  		               	   getAverage(209), getAverage(223),
+	  		                   getAverage(308), getAverage(323)];
 
 			// Input the data based off the average of each array of temperatures for each location
 			// throughout the building
 			
 		    var data = google.visualization.arrayToDataTable([
 		      	['Floor', 'North Wing', 'South Wing'],
-		    	['Basement', getAverage('B03'), getAverage('B03')],
-		      	['First', getAverage(108), getAverage(120)],
-		      	['Second', getAverage(209), getAverage(223)],
-		      	['Third', getAverage(308), getAverage(323)]
+		    	['Basement', averageTemp[0], averageTemp[1]],
+		      	['First', averageTemp[2], averageTemp[3]],
+		      	['Second', averageTemp[4], averageTemp[5]],
+		      	['Third', averageTemp[6], averageTemp[7]]
 		   	]); 
 		
 		    var options = {
