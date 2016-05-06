@@ -34,38 +34,333 @@
 		{ 
 		    GetJSONResult(urls[i]);
 		}*/
+		var timestamp= [];
+        var temperature= [];
+        
       function drawChart() {
 
         var room = 120;
+        var url = null;
 
         // JSON request
-        /*var jsonData = $.ajax({
-          url: 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=120',
-          data: {info: 1},
-          dataType: 'json',
-        }).done(function (results) {*/
+        jQuery.extend({
+        	getDataB03: function(url){
+		        var timetemp = [];
+		        $.ajax({
+		          url: url,
+				  data: {info: 1},
+		          dataType: 'json',
+		          async: false,
+		          success: function(results){
+					results["info"].forEach(function(item) {
+				          timetemp.push(item.time);
+				          timetemp.push(item.tempF);
+				    });},
+		        });
+		    return timetemp;
+        	},
+        	getData108: function(url){
+		        var timetemp = [];
+		        $.ajax({
+		          url: url,
+				  data: {info: 1},
+		          dataType: 'json',
+		          async: false,
+		          success: function(results){
+					results["info"].forEach(function(item) {
+				          timetemp.push(item.time);
+				          timetemp.push(item.tempF);
+				    });},
+		        });
+		    return timetemp;
+        	},
+        	getData120: function(url){
+		        var timetemp = [];
+		        $.ajax({
+		          url: url,
+				  data: {info: 1},
+		          dataType: 'json',
+		          async: false,
+		          success: function(results){
+					results["info"].forEach(function(item) {
+				          timetemp.push(item.time);
+				          timetemp.push(item.tempF);
+				    });},
+		        });
+		    return timetemp;
+        	},
+        	getData209: function(url){
+		        var timetemp = [];
+		        $.ajax({
+		          url: url,
+				  data: {info: 1},
+		          dataType: 'json',
+		          async: false,
+		          success: function(results){
+					results["info"].forEach(function(item) {
+				          timetemp.push(item.time);
+				          timetemp.push(item.tempF);
+				    });},
+		        });
+		    return timetemp;
+        	},
+        	getData223: function(url){
+		        var timetemp = [];
+		        $.ajax({
+		          url: url,
+				  data: {info: 1},
+		          dataType: 'json',
+		          async: false,
+		          success: function(results){
+					results["info"].forEach(function(item) {
+				          timetemp.push(item.time);
+				          timetemp.push(item.tempF);
+				    });},
+		        });
+		    return timetemp;
+        	},
+        	getData308: function(url){
+		        var timetemp = [];
+		        $.ajax({
+		          url: url,
+				  data: {info: 1},
+		          dataType: 'json',
+		          async: false,
+		          success: function(results){
+					results["info"].forEach(function(item) {
+				          timetemp.push(item.time);
+				          timetemp.push(item.tempF);
+				    });},
+		        });
+		    return timetemp;
+        	},
+        	getData323: function(url){
+		        var timetemp = [];
+		        $.ajax({
+		          url: url,
+				  data: {info: 1},
+		          dataType: 'json',
+		          async: false,
+		          success: function(results){
+					results["info"].forEach(function(item) {
+				          timetemp.push(item.time);
+				          timetemp.push(item.tempF);
+				    });},
+		        });
+		    return timetemp;
+        	},
+        	getDataOUT: function(url){
+		        var timetemp = [];
+		        $.ajax({
+		          url: url,
+				  data: {info: 1},
+		          dataType: 'json',
+		          async: false,
+		          success: function(results){
+					results["info"].forEach(function(item) {
+				          timetemp.push(item.time);
+				          timetemp.push(item.tempF);
+				    });},
+		        });
+		    return timetemp;
+        	},
+        	
+        });
+        
+        
+        //B03
+        url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=B03&startTime=2016-04-30';
+        
+        var DataB03 = $.getDataB03(url);
+        console.log(DataB03);
+        
+        //108
+        url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=108&startTime=2016-04-30';
+        
+        var Data108 = $.getData108(url);
+        console.log(Data108);
+        
+        // 120
+        url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=120&startTime=2016-04-30';
+        
+        var Data120 = $.getData120(url);
+        console.log(Data120);        
+        
+        //209
+        url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=209&startTime=2016-04-30';
+        
+        var Data209 = $.getData209(url);
+        console.log(Data209);
+        
+        
+        //223
+        url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=223&startTime=2016-04-30';
+        
+        var Data223 = $.getData223(url);
+        console.log(Data223);
+        
+        
+        //308
+        url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=308&startTime=2016-04-30';
+        
+        var Data308 = $.getData308(url);
+        console.log(Data308);
+        
+        //323
+        url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=323&startTime=2016-04-30';
+        
+        var Data323 = $.getData323(url);
+        console.log(Data323);
+        
+        //jsonData1 = jsonData1.concat(jsonData2);
+        //var combinedData = $.extend({}, jsonData1, jsonData2);
+        //.done(function (results) {
        	
-       	var climate_params = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=' + room;
-			$.getJSON( climate_params, function(results){
+       	//var climate_params = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=' + room;
+			//$.getJSON( climate_params, function(results){
 			
-			}).done(function(results){
-
-          var data = new google.visualization.DataTable();
+			//});
+			
+			//var data = jsonData1.responseText;
+			//var jsonResponse = JSON.parse(data);
+			//console.log(jsonResponse);
+			//console.log(jsonData1[info]);
+			
+			/*jsonData1.done(function(results){
+				results["info"].forEach(function(item) {
+			          timestamp.push(item.time);
+			          temperature.push(item.tempC);
+			    });
+			    //console.log(timestamp);
+			    //console.log(temperature);
+			});*/
+			
+			
+		  // Basement03 Graph
+          var data1 = new google.visualization.DataTable();
+          
+          data1.addColumn('datetime', 'Time');
+          data1.addColumn('number', 'B03');
+		    
+		   for(var i = 0; i < DataB03.length-1; i=i+2)
+          {
+          	data1.addRow([
+		          new Date(DataB03[i]),
+		          parseFloat(DataB03[i+1]),
+		        ]);
+          }
+          
+          // Room 108 Graph
+          var data2 = new google.visualization.DataTable();
 			
 		  var temperatureType = 'C';
     	  var startDate = 'beginning';
     	  var endDate = 'end';
     	  
-          data.addColumn('datetime', 'Time');
-          data.addColumn('number', '120');
-
-          results["info"].forEach(function(packet) {
-	      	data.addRow([
-		          (new Date(packet.time)),
-		          parseFloat(packet.tempF),
+          data2.addColumn('datetime', 'Time');
+          data2.addColumn('number', '108');
+		    
+		   for(var i = 0; i < Data108.length-1; i=i+2)
+          {
+          	data2.addRow([
+		          new Date(Data108[i]),
+		          parseFloat(Data108[i+1]),
 		        ]);
-		    });
+          }
+			
+		  // Room 120 Graph
+          var data3 = new google.visualization.DataTable();
+			
+		  var temperatureType = 'C';
+    	  var startDate = 'beginning';
+    	  var endDate = 'end';
+    	  
+          data3.addColumn('datetime', 'Time');
+          data3.addColumn('number', '120');
+		    
+		   for(var i = 0; i < Data120.length-1; i=i+2)
+          {
+          	data3.addRow([
+		          new Date(Data120[i]),
+		          parseFloat(Data120[i+1]),
+		        ]);
+          }
           
+          // Room 209 Graph
+          var data4 = new google.visualization.DataTable();
+			
+		  var temperatureType = 'C';
+    	  var startDate = 'beginning';
+    	  var endDate = 'end';
+    	  
+          data4.addColumn('datetime', 'Time');
+          data4.addColumn('number', '209');
+		    
+		   for(var i = 0; i < Data209.length-1; i=i+2)
+          {
+          	data4.addRow([
+		          new Date(Data209[i]),
+		          parseFloat(Data209[i+1]),
+		        ]);
+          }
+          
+          // Room 223 Graph
+          var data5 = new google.visualization.DataTable();
+			
+		  var temperatureType = 'C';
+    	  var startDate = 'beginning';
+    	  var endDate = 'end';
+    	  
+          data5.addColumn('datetime', 'Time');
+          data5.addColumn('number', '223');
+		    
+		   for(var i = 0; i < Data223.length-1; i=i+2)
+          {
+          	data5.addRow([
+		          new Date(Data223[i]),
+		          parseFloat(Data223[i+1]),
+		        ]);
+          }
+          
+          // Room 308 Graph
+          var data6 = new google.visualization.DataTable();
+			
+		  var temperatureType = 'C';
+    	  var startDate = 'beginning';
+    	  var endDate = 'end';
+    	  
+          data6.addColumn('datetime', 'Time');
+          data6.addColumn('number', '308');
+		    
+		   for(var i = 0; i < Data308.length-1; i=i+2)
+          {
+          	data6.addRow([
+		          new Date(Data308[i]),
+		          parseFloat(Data308[i+1]),
+		        ]);
+          }
+          
+          // Room 323 Graph
+          var data7 = new google.visualization.DataTable();
+			
+		  var temperatureType = 'C';
+    	  var startDate = 'beginning';
+    	  var endDate = 'end';
+    	  
+          data7.addColumn('datetime', 'Time');
+          data7.addColumn('number', '323');
+		    
+		   for(var i = 0; i < Data323.length-1; i=i+2)
+          {
+          	data7.addRow([
+		          new Date(Data323[i]),
+		          parseFloat(Data323[i+1]),
+		        ]);
+          }
+          
+          // join tables to match time scales
+          var joinData1 = google.visualization.data.join(data1, data2, 'full', [[0, 0]], [1], [1]);
+          var joinData2 = google.visualization.data.join(joinData1, data2, 'full', [[0, 0]], [1], [1]);
 
           //var chart = new google.visualization.LineChart($('#chart').get(0));
           var options = {
@@ -73,14 +368,15 @@
 	        //subtitle: 'From ' + startDate + ' to ' + endDate,
 	      	      
 	        curveType: 'function',
-	        legend: { position: 'right' }
-        };
+	        legend: { position: 'right' },
+	        interpolateNulls: true
+          };
 
         var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
 
-        chart.draw(data, options);
+        chart.draw(joinData1, options);
 
-        });
+        
 
       }
 
