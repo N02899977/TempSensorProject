@@ -12,36 +12,15 @@
         <!-- EXTERNAL LIBS-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://www.google.com/jsapi"></script>
-
     <script>
 		google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
       // onload callback
       
-      function GetJSONResult(url)
-		{
-		  $.getJSON(url,
-		  function(data){
-		    console.log(data);
-		   });
-		}
-		
-		//var urls = ['http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=120',
-		//'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=B03',
-		//'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=223']
-		
-		/*for (var i=0;i<urls.length;i++)
-		{ 
-		    GetJSONResult(urls[i]);
-		}*/
-		var timestamp= [];
-        var temperature= [];
+      var url = null;
+      var date = '2016-04-30';
         
       function drawChart() {
-
-        var room = 120;
-        var url = null;
-
         // JSON request
         jQuery.extend({
         	getDataB03: function(url){
@@ -169,73 +148,55 @@
         
         
         //B03
-        url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=B03&startTime=2016-04-30';
+        url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=B03&startTime=' + date;
         
         var DataB03 = $.getDataB03(url);
         console.log(DataB03);
         
         //108
-        url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=108&startTime=2016-04-30';
+        url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=108&startTime=' + date;
         
         var Data108 = $.getData108(url);
         console.log(Data108);
         
         // 120
-        url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=120&startTime=2016-04-30';
+        url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=120&startTime=' + date;
         
         var Data120 = $.getData120(url);
         console.log(Data120);        
         
         //209
-        url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=209&startTime=2016-04-30';
+        url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=209&startTime=' + date;
         
         var Data209 = $.getData209(url);
         console.log(Data209);
         
         
         //223
-        url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=223&startTime=2016-04-30';
+        url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=223&startTime=' + date;
         
         var Data223 = $.getData223(url);
         console.log(Data223);
         
         
         //308
-        url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=308&startTime=2016-04-30';
+        url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=308&startTime=2016-04-08';
         
         var Data308 = $.getData308(url);
         console.log(Data308);
         
         //323
-        url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=323&startTime=2016-04-30';
+        url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=323&startTime=2016-04-08';
         
         var Data323 = $.getData323(url);
         console.log(Data323);
         
-        //jsonData1 = jsonData1.concat(jsonData2);
-        //var combinedData = $.extend({}, jsonData1, jsonData2);
-        //.done(function (results) {
-       	
-       	//var climate_params = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=' + room;
-			//$.getJSON( climate_params, function(results){
-			
-			//});
-			
-			//var data = jsonData1.responseText;
-			//var jsonResponse = JSON.parse(data);
-			//console.log(jsonResponse);
-			//console.log(jsonData1[info]);
-			
-			/*jsonData1.done(function(results){
-				results["info"].forEach(function(item) {
-			          timestamp.push(item.time);
-			          temperature.push(item.tempC);
-			    });
-			    //console.log(timestamp);
-			    //console.log(temperature);
-			});*/
-			
-			
+        var allData = [];
+        allData[0] = DataB03;
+        allData[1] = Data108;
+        allData[2] = Data120;
+		console.log(allData);
+        
 		  // Basement03 Graph
           var data1 = new google.visualization.DataTable();
           
@@ -252,10 +213,6 @@
           
           // Room 108 Graph
           var data2 = new google.visualization.DataTable();
-			
-		  var temperatureType = 'C';
-    	  var startDate = 'beginning';
-    	  var endDate = 'end';
     	  
           data2.addColumn('datetime', 'Time');
           data2.addColumn('number', '108');
@@ -271,9 +228,6 @@
 		  // Room 120 Graph
           var data3 = new google.visualization.DataTable();
 			
-		  var temperatureType = 'C';
-    	  var startDate = 'beginning';
-    	  var endDate = 'end';
     	  
           data3.addColumn('datetime', 'Time');
           data3.addColumn('number', '120');
@@ -288,10 +242,6 @@
           
           // Room 209 Graph
           var data4 = new google.visualization.DataTable();
-			
-		  var temperatureType = 'C';
-    	  var startDate = 'beginning';
-    	  var endDate = 'end';
     	  
           data4.addColumn('datetime', 'Time');
           data4.addColumn('number', '209');
@@ -306,10 +256,6 @@
           
           // Room 223 Graph
           var data5 = new google.visualization.DataTable();
-			
-		  var temperatureType = 'C';
-    	  var startDate = 'beginning';
-    	  var endDate = 'end';
     	  
           data5.addColumn('datetime', 'Time');
           data5.addColumn('number', '223');
@@ -324,10 +270,6 @@
           
           // Room 308 Graph
           var data6 = new google.visualization.DataTable();
-			
-		  var temperatureType = 'C';
-    	  var startDate = 'beginning';
-    	  var endDate = 'end';
     	  
           data6.addColumn('datetime', 'Time');
           data6.addColumn('number', '308');
@@ -342,10 +284,6 @@
           
           // Room 323 Graph
           var data7 = new google.visualization.DataTable();
-			
-		  var temperatureType = 'C';
-    	  var startDate = 'beginning';
-    	  var endDate = 'end';
     	  
           data7.addColumn('datetime', 'Time');
           data7.addColumn('number', '323');
@@ -359,24 +297,77 @@
           }
           
           // join tables to match time scales
-          var joinData1 = google.visualization.data.join(data1, data2, 'full', [[0, 0]], [1], [1]);
-          var joinData2 = google.visualization.data.join(joinData1, data2, 'full', [[0, 0]], [1], [1]);
+          //var joinData1 = google.visualization.data.join(data1, data2, 'full', [[0, 0]], [1], [1]);
+          //var joinData2 = google.visualization.data.join(joinData1, data2, 'full', [[0, 0]], [1], [1]);
+          
+          // Basement03 Graph
+          var allDatachart = new google.visualization.DataTable();
+          
+          allDatachart.addColumn('datetime', 'Time');
+          allDatachart.addColumn('number', 'B03');
+          allDatachart.addColumn('number', '108');
+          allDatachart.addColumn('number', '120');
+          allDatachart.addColumn('number', '209');
+          allDatachart.addColumn('number', '223');
+          //allDatachart.addColumn('number', '308');
+          //allDatachart.addColumn('number', '323');
+		    
+		   for(var i = 0; i < DataB03.length-1; i=i+2)
+          {
+          	allDatachart.addRow([
+		          new Date(DataB03[i]),
+		          parseFloat(DataB03[i+1]),
+		          parseFloat(Data108[i+1]),
+		          parseFloat(Data120[i+1]),
+		          parseFloat(Data209[i+1]),
+		          parseFloat(Data223[i+1]),
+		          //parseFloat(Data308[i+1]),
+		          //parseFloat(Data323[i+1]),
+		        ]);
+          }
 
           //var chart = new google.visualization.LineChart($('#chart').get(0));
           var options = {
-	        title: 'Temp vs. Time',
-	        //subtitle: 'From ' + startDate + ' to ' + endDate,
 	      	      
-	        curveType: 'function',
 	        legend: { position: 'right' },
 	        interpolateNulls: true
           };
 
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+        //var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
 
-        chart.draw(joinData1, options);
-
+        //chart.draw(joinData1, options);
         
+        var chartB03 = new google.visualization.LineChart(document.getElementById('chart_B03'));
+
+        chartB03.draw(data1, options);
+        
+        var chart108 = new google.visualization.LineChart(document.getElementById('chart_108'));
+
+        chart108.draw(data2, options);
+
+        var chart120 = new google.visualization.LineChart(document.getElementById('chart_120'));
+
+        chart120.draw(data3, options);
+        
+        var chart209 = new google.visualization.LineChart(document.getElementById('chart_209'));
+
+        chart209.draw(data4, options);
+        
+        var chart223 = new google.visualization.LineChart(document.getElementById('chart_223'));
+
+        chart223.draw(data5, options);
+        
+        var chart308 = new google.visualization.LineChart(document.getElementById('chart_308'));
+
+        chart308.draw(data6, options);
+        
+        var chart323 = new google.visualization.LineChart(document.getElementById('chart_323'));
+
+        chart323.draw(data7, options);
+        
+        var chartallData = new google.visualization.LineChart(document.getElementById('chart_all'));
+
+        chartallData.draw(allDatachart, options);
 
       }
 
@@ -387,13 +378,73 @@
 
       // call drawChart once google charts is loaded
       google.setOnLoadCallback(drawChart);
-
+      
+      //set Date variable to text box values in browser not working(unused)
+      function setDate() { 
+		var newYear = parseFloat(document.getElementById("textbox1").value);
+		var newMonth = parseFloat(document.getElementById("textbox2").value);
+		var newDay = parseFloat(document.getElementById("textbox3").value);
+		
+		date=newYear + '-' + newMonth+ '-' + newDay;
+		console.log(date);
+		 }
+		 
+		//set Date on button click not working(unused)
+		$(document).ready(function(){
+		    //On button click, load new data
+		    $(".submitDate").click(function(){
+		        setDate();
+		        drawChart();
+		    
+		    });
+		});
+      
     </script>
+    
+    
   </head>
   <body>
   	<div id="top-nav"> </div>
-    <div id="curve_chart" style="width: 100%; height: 500px;padding-top: 30px"></div>
+  	
+	<!-- joined data chart. couldn't get more arrays to join -->
+	<!--<div id="curve_chart" style="width: 100%; height: 500px;padding-top: 15px"></div>-->
+	<div class="container" style="padding-top: 30px">
+		<div class="row">
+		  <div class="col-xs-12 col-md-8"><h4>All Pi's Temperatures</h4>
+			<h5>From April 30, 2016 to Today</h5><div id="chart_all" style="width: 100%; height: 500px"></div></div>
+		  <div class="col-xs-6 col-md-4" style="padding-top:50px"><h4>Current Temperature: </h4><a href="http://www.accuweather.com/en/us/new-paltz-ny/12561/weather-forecast/4727_pc" class="aw-widget-legal">
+	    </a><div id="awcc1462492142342" class="aw-widget-current"  data-locationkey="" data-unit="f" data-language="en-us" data-useip="true" data-uid="awcc1462492142342" style="padding-top: 20px; width: 200px"></div></div>
+		</div>
+		<h4>Basement Temperature</h4>
+		<h5>From April 30, 2016 to Today</h5>
+	  <div id="chart_B03" style="width: 100%; height: 500px;padding-top: 15px"></div>
+	  <h4>Basement Temperature</h4>
+		<h5>From April 30, 2016 to Today</h5>
+	  <div id="chart_108" style="width: 100%; height: 500px;padding-top: 15px"></div>
+	  <h4>Basement Temperature</h4>
+		<h5>From April 30, 2016 to Today</h5>
+	  <div id="chart_120" style="width: 100%; height: 500px;padding-top: 15px"></div>
+	  <h4>Basement Temperature</h4>
+		<h5>From April 30, 2016 to Today</h5>
+	  <div id="chart_209" style="width: 100%; height: 500px;padding-top: 15px"></div>
+	  <h4>Basement Temperature</h4>
+		<h5>From April 30, 2016 to Today</h5>
+	  <div id="chart_223" style="width: 100%; height: 500px;padding-top: 15px"></div>
+	  <h4>Basement Temperature</h4>
+		<h5>From April 8, 2016 to April 19, 2016</h5>
+	  <div id="chart_308" style="width: 100%; height: 500px;padding-top: 15px"></div>
+	  <h4>Basement Temperature</h4>
+		<h5>From April 8, 2016 to April 16, 2016</h5>
+	  <div id="chart_323" style="width: 100%; height: 500px;padding-top: 15px"></div>
+	</div>
+	<!--<input type="text" name="textbox1" id="textbox1" />
+	<input type="text" name="textbox2" id="textbox2" />
+	<input type="text" name="textbox3" id="textbox3" />
+	<a class="submitDate" href="#">Set Date</a>-->
+	
     
+    
+    <script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
