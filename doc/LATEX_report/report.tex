@@ -16,7 +16,7 @@
 			[2mm]
 			\line(1,0){340}\\
 			[1.1cm]
-			\textsc{\Large Embedded Linux (CPS342)\\ April 25, 2016}\\
+			\textsc{\Large Embedded Linux (CPS342)\\ May 9, 2016}\\
 			[1cm]
 			\includegraphics[scale=.15]{rpi.jpg}\\
 			[1cm]
@@ -47,6 +47,14 @@
 		Done, Heidi Fritz, Jabari Dash, Roberto Milanese, and Victoria Bottali were tasked with collecting 
 		temperature data throughout Bliss Hall at the SUNY New Paltz campus and representing it graphically
 		for later analysis by the Sustainability Office.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+		
+		\begin{figure} [H]
+				\begin{center}
+					\includegraphics[scale=.3]{bliss.png}
+						\captionsetup{labelformat=empty}
+						\caption{Google Maps screen-shot of rear of Bliss that demonstrates Raspberry Pi / Sensor distribution}
+				\end{center}
+			\end{figure}
 		
 %====================================================================================================================================
 		
@@ -150,19 +158,19 @@
 		\subsection{Software}
 			\subsubsection{Client-Side Programming}
 				\begin{itemize}
+					\item Crontab
+					\item HTML
+					\item JavaScript
 					\item Python
-					\item SQLite3
+					\item SQLite3						
 				\end{itemize}	
 			\subsubsection{Server-Side Programming}
 				\begin{itemize}
-					\item JavaScript
-					\item PHP
-					\item HTML
 					\item MySQL
+					\item PHP									
 				\end{itemize}
-			\subsubsection{Other}
-				\begin{itemize}
-					\item Crontab
+			\subsubsection{Documentation}
+				\begin{itemize}			
 					\item GitHub
 					\item LATEX
 				\end{itemize}
@@ -171,29 +179,26 @@
 			
 	\newpage
 	\section{Implementation}\label{sec:implementation}
-		\subsection{Overall Structure}
-			Students distributed several internet connected Raspberry Pi computers throughout Bliss Hall in residents' rooms
-			where each Pi periodically reads the current ambient temperature in the room and writes it to a local database. A 
-			Linux Apache MySQL and PHP (LAMP) server running on SUNY New Paltz servers periodically performs a pull request on
-			each Pi, and compiles all of the temperature data in a MySQL database.
-			
-			\begin{figure} [H]
-				\begin{center}
-					\includegraphics[scale=.3]{bliss.png}
-						\captionsetup{labelformat=empty}
-						\caption{Google Maps screen-shot of rear of Bliss that demonstrates Raspberry Pi / Sensor distribution}
-				\end{center}
-			\end{figure}
-			
+	
+		Students distributed several internet connected Raspberry Pi computers throughout Bliss Hall in residents' rooms
+		where each Pi periodically (every 10 minutes) reads the current ambient temperature in the room and writes it to a local database. A 
+		Linux Apache MySQL and PHP (LAMP) server running on SUNY New Paltz servers periodically performs a pull request on
+		each Pi, and compiles all of the temperature data in a MySQL database. This data can then be viewed graphically on a 
+		live website - hosted by school servers.	
+		
+		The website, and the project overall implements the Model View Controller (MVC) design pattern. This means that the Model (the data),
+		the View (GUI), and the controller (server) are all coded separately from each other. 
+		
 %------------------------------------------------------------------------------------------------------------------------------------
 			
 	\newpage
 			
 		\subsection{Temperature Sensor Setup}	
 			The temperature sensor is connected to the Raspberry Pi's General Purpose Input Output (GPIO) pins via breadboard, 
-			and the 24-pin cobbler cable. The DS18B20 has three cables: ground (GND), 3.0 volt - 5.0 volt power line, and a data line. 
-			We connect the GND to and GND pin on the Raspberry Pi, the power line to the 3.3v rail, and the data line to GPIO \#4.
-		 	We then set up a pull-up resistor that connects the data line (pin 4) to the 3.3v line.
+			and the 24-pin cobbler cable. The DS18B20 has three cables: ground (GND), 3.0v - 5.0v power line, and a data line. 
+			We connect the GND to the GND pin on the Raspberry Pi, the power line to the 3.3v rail, and the data line to GPIO \#4.
+		 	We then set up a pull-up resistor that connects the data line (pin 4) to the 3.3v line. Temperature sensors were set
+		 	up by Brendan and Jabari, and deployed by Brendan.
 							
 				\begin{figure}[H]
   					\begin{center}	
@@ -202,40 +207,64 @@
   						\captionsetup{labelformat=empty}
   						\caption{DS18B20 Digital Temperature Sensor connected to the breadboard using a  4.7k pull-up resistor}
   				\end{figure}	
-  				
+						
 %------------------------------------------------------------------------------------------------------------------------------------  	
   	
-  	\newpage					
-		
-		\subsection{Client-Side Software (Raspberry Pi)}
-			Each Pi will have 3 Python scripts that allow the Pi to collect data, convert it to JavaScript Object
-			Notation (JSON) format, and return the JSON to the LAMP server.
-			
-			\subsubsection{Python Scripts}
+  	\newpage	
+  		\subsection{Model}		
+  			In the MVC design pattern, the Model handles how data is stored. For this project, a combination of SQLit3, MySQL,
+  			and Python allow the data to be stored properly - with redundancy.
+
+			\subsubsection{Programming the Raspberry Pi using Python Scripts}
+				Each Pi has 3 Python scripts that allow the Pi to collect data, convert it to JavaScript Object
+				Notation (JSON) format, and return the JSON to the LAMP server. The temperature data is store locally
+				in the SQLite3 database file for redundancy. For example, in the event that data transfer is interrupted
+				during a pull request from the server, once the connection is remade, the data that was failed to send
+				can still be resent from the local copy.
+
 				\begin{itemize}
-					\item tempLog.py: Creates a Cronjob (scheduled task) the first time tempLog.py executes. The Cronjob executes tempLog.py every 10 minutes. 
-					The script reads the ambient temperature
-					in celcius and writes it to a SQLite3 database file called climate\_info.db
+					\item tempLog.py: Creates a Cronjob (scheduled task) the first time tempLog.py executes. The Cronjob 
+									  executes tempLog.py every 10 minutes. The script reads the ambient temperature
+									  in celcius and writes it to a SQLite3 database file called climate\_info.db. tempLog.py was
+									  written by Heidi.
 						\begin{center}
 							\includegraphics[scale=.4]{tempLogFlowchart.png}\\
 						\end{center}
 					\item index.py: When passed a given start and stop date, index.py sets up a Flask server on the Pi and 
 									converts the data from the SQLite database into JSON objects. The JSON is put onto the Flask server in
-									preparation to be sent to the LAMP server.
-					\item json\_push.py: Creates the JSON post to push to data to the LAMP server.
+									preparation to be sent to the LAMP server. index.py was written by Brendan.
+					\item json\_push.py: Creates the JSON post to push to data to the LAMP server. json\_push.py was written by Brendan.
 				\end{itemize}
 				
-			\subsubsection{SQLite3 Database Schema}	
-				
+			\subsubsection{SQLite3 Database Schema (on Raspberry Pi)}	
+				Each Pi has two SQLite3 database files. climate\_info.db stores all of the temperature data.
+			
+			\subsubsection{MySQL Database Schema (on LAMP Server)}
+			
+		\subsection{View}
+			The View is what the user actually sees, and interacts with. Typically the View and Graphical User Interface are interchangeable.
+			For this project, students were asked to implement two different views of the same data. This demonstrates the value of
+			the MVC design pattern. Provided that the data (Model) is separate from the View, the data can be displayed in several different
+			ways without having to rewrite code relating to the data itself.		
+		
+			\subsubsection{Graphical User Interface (GUI) by Group A}
+				GUI A is written by Heidi and Jabari. It is written in HTML and JavaScript, and implements the Google Charts API
+				for graphical representation of the data.
+			
+			\subsubsection{Graphical User Interface (GUI) by Group B}
+				GUI B is written by  Cesar, Roberto, and Victoria.
+								
 %------------------------------------------------------------------------------------------------------------------------------------
 			
 	\newpage		
 			
-		\subsection{Server-Side Software (LAMP Server)}
-			INSERT OVERVIEW HERE
-			\subsubsection{PHP Scripts}
-			\subsubsection{MySQL Database Schema}
-			\subsubsection{Graphical User Interface}
+		\subsection{Controller}
+			The Controller is responsible for getting data back and forth between the Model and the View. In this case, the Controller
+			is also responsible for getting data from one element of the Model, to the other. For example, the periodic pull request 
+			from the server to each Pi collects the local data from each Pi, and compiles all of the temperature data into one large
+			database on the LAMP server.
+			
+			\subsubsection{PHP Scripts}			
 		
 %====================================================================================================================================		
 	\newpage
@@ -244,7 +273,7 @@
 			\begin{itemize}
 				\item Brendan Lowe:
 				\item Cesar Done: The project thus far has been running very smoothly. We are lucky to have access to several rooms here on campus as well 
-								  as several network settings that students don’t regularly have. The Pi’s haven’t given us any problems and the actual set 
+								  as several network settings that students do not regularly have. The Pis have not given us any problems and the actual set 
 								  up and maintenance of them have been smooth as well. This project can  become a even bigger, funded project by the school
 								   if we manage to provide accurate as well as beneficial data to the school. Also if we can create a simple interface that 
 								   school can use to access the data, they would be more inclined to support and provide their services for the project. 
@@ -253,9 +282,9 @@
 				\item Heidi Fritz: This project had simple tasks that we planned out and I took on the back end operations that the raspberry pi would 
 				carry out to collect the temperature and humidity data.  To do this I connected my own temperature sensor to a personal pi and wrote 
 				python script which consisted of four functions.  A function to get the temperature from the device, log the temperature and time into a 
-				sqlite database, create a cronjob to repeat data collection, and a main function to start the process.  One struggle I came across was 
+				SQLite3 database, create a Cronjob to repeat data collection, and a main function to start the process.  One struggle I came across was 
 				opening the device file so it would work on every pi.  I imported glob to find the correct path name within the pi.  The python script 
-				was easily integrated with the other scripts to work on one pi so we could make copies of the sd card.  In the end, I met the team goals 
+				was easily integrated with the other scripts to work on one pi so we could make copies of the SD card.  In the end, I met the team goals 
 				and expectations.
 				\item Jabari Dash: The project so far is going well in that the data is being collected correctly.
 									The beginning was challenging in that the group was lost because we were unsure of how to 

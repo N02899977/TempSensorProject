@@ -1,10 +1,9 @@
 #!/usr/bin/python
 
-"""tempLog.py: Logs Current Time and Temperature in Celsius. 
-   Puts datetime and temperature in a sqlite3 database(climate_info.db)"""
-
-__author__ = "Heidi Fritz"
-__since__ = "2016 Apr 7"
+# tempLog.py
+# Heidi Fritz
+# Log Current Time, Temperature in Celsius
+# Puts date, time, temperature in a sqlite3 database(climate_info.db)
 
 import sqlite3  # must do 'sudo apt-get install sqlite'
 import os
@@ -46,14 +45,14 @@ def logTemp(temp):
         print "Opened database successfully."
         print "Currently working in " + databaseName
 
-        # check if the table 'Temperature' already exists
+        # check if the table 'Climate' already exists
         cursor = conn.cursor()
         
         query = cursor.execute("SELECT COUNT(*) FROM sqlite_master WHERE type = 'table' AND name = '%s';"
                                %tableName)
         exists = cursor.fetchone()[0]  # fetches result of query
         if not(exists):
-           # there are no tables named 'Temperature'
+           # there are no tables named 'Climate'
            conn.execute("CREATE TABLE %s(timestamp NUMERIC NOT NULL DEFAULT( datetime('now','localtime')), temperature REAL);"
                         %tableName)
            print "Table created."
@@ -62,7 +61,7 @@ def logTemp(temp):
            conn.commit()
            print "Temp recorded in " + tableName + "."
         else:
-           # there is a table named 'Temperature'
+           # there is a table named 'Climate'
            conn.execute("INSERT INTO %s (temperature)VALUES((?));"
                         %tableName, (temp,))
            conn.commit()

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.24)  30 APR 2016 13:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.24)  6 MAY 2016 06:45
 entering extended mode
 **./report.tex
 (report.tex
@@ -164,73 +164,83 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout3 = `report.toc'.
 
  [1]
-[2] <brendan.jpg, id=17, 1927.2pt x 1284.8pt>
+<bliss.png, id=14, 1153.911pt x 266.79675pt>
+File: bliss.png Graphic file (type png)
+ <use bliss.png>
+Package pdftex.def Info: bliss.png used on input line 53.
+(pdftex.def)             Requested size: 346.17596pt x 80.03963pt.
+
+Overfull \hbox (1.17596pt too wide) in paragraph at lines 53--55
+ [] 
+ []
+
+[2 <./bliss.png>] <brendan.jpg, id=20, 1927.2pt x 1284.8pt>
 File: brendan.jpg Graphic file (type jpg)
  <use brendan.jpg>
-Package pdftex.def Info: brendan.jpg used on input line 59.
+Package pdftex.def Info: brendan.jpg used on input line 67.
 (pdftex.def)             Requested size: 134.91779pt x 89.94519pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--61
+Underfull \hbox (badness 10000) in paragraph at lines 67--69
 
  []
 
-<heidi.jpg, id=18, 1927.2pt x 1284.8pt>
+<heidi.jpg, id=21, 1927.2pt x 1284.8pt>
 File: heidi.jpg Graphic file (type jpg)
  <use heidi.jpg>
-Package pdftex.def Info: heidi.jpg used on input line 65.
+Package pdftex.def Info: heidi.jpg used on input line 73.
 (pdftex.def)             Requested size: 134.91779pt x 89.94519pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 65--68
+Underfull \hbox (badness 10000) in paragraph at lines 73--76
 
  []
 
-<roberto.jpg, id=19, 1927.2pt x 1284.8pt>
+<roberto.jpg, id=22, 1927.2pt x 1284.8pt>
 File: roberto.jpg Graphic file (type jpg)
  <use roberto.jpg>
-Package pdftex.def Info: roberto.jpg used on input line 72.
+Package pdftex.def Info: roberto.jpg used on input line 80.
 (pdftex.def)             Requested size: 134.91779pt x 89.94519pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 72--74
+Underfull \hbox (badness 10000) in paragraph at lines 80--82
 
  []
 
 
-Underfull \hbox (badness 4303) in paragraph at lines 74--74
+Underfull \hbox (badness 4303) in paragraph at lines 82--82
 []|\OT1/cmr/m/n/10 Roberto han-dled front-end pro-
  []
 
-<cesar.jpg, id=20, 1927.2pt x 1284.8pt>
+<cesar.jpg, id=23, 1927.2pt x 1284.8pt>
 File: cesar.jpg Graphic file (type jpg)
  <use cesar.jpg>
-Package pdftex.def Info: cesar.jpg used on input line 83.
+Package pdftex.def Info: cesar.jpg used on input line 91.
 (pdftex.def)             Requested size: 134.91779pt x 89.94519pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 83--85
+Underfull \hbox (badness 10000) in paragraph at lines 91--93
 
  []
 
-<jabari.jpg, id=21, 1927.2pt x 1284.8pt>
+<jabari.jpg, id=24, 1927.2pt x 1284.8pt>
 File: jabari.jpg Graphic file (type jpg)
  <use jabari.jpg>
-Package pdftex.def Info: jabari.jpg used on input line 89.
+Package pdftex.def Info: jabari.jpg used on input line 97.
 (pdftex.def)             Requested size: 134.91779pt x 89.94519pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 89--91
+Underfull \hbox (badness 10000) in paragraph at lines 97--99
 
  []
 
-<victoria.jpg, id=22, 1927.2pt x 1284.8pt>
+<victoria.jpg, id=25, 1927.2pt x 1284.8pt>
 File: victoria.jpg Graphic file (type jpg)
  <use victoria.jpg>
-Package pdftex.def Info: victoria.jpg used on input line 95.
+Package pdftex.def Info: victoria.jpg used on input line 103.
 (pdftex.def)             Requested size: 134.91779pt x 89.94519pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--97
+Underfull \hbox (badness 10000) in paragraph at lines 103--105
 
  []
 
 
-Underfull \hbox (badness 2205) in paragraph at lines 97--97
+Underfull \hbox (badness 2205) in paragraph at lines 105--105
 []|\OT1/cmr/m/n/10 Vic-to-ria han-dled client-side pro-
  []
 
@@ -240,54 +250,43 @@ Overfull \vbox (6.53831pt too high) has occurred while \output is active []
 
 [3 <./brendan.jpg> <./heidi.jpg> <./roberto.jpg> <./cesar.jpg> <./jabari.jpg> <
 ./victoria.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 119--121
+Underfull \hbox (badness 10000) in paragraph at lines 127--129
 
  []
 
-<pre_deployment.jpg, id=26, 626.34pt x 352.31625pt>
+<pre_deployment.jpg, id=29, 626.34pt x 352.31625pt>
 File: pre_deployment.jpg Graphic file (type jpg)
  <use pre_deployment.jpg>
-Package pdftex.def Info: pre_deployment.jpg used on input line 124.
+Package pdftex.def Info: pre_deployment.jpg used on input line 132.
 (pdftex.def)             Requested size: 313.16922pt x 176.15768pt.
 
 [4 <./pre_deployment.jpg>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 136.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 144.
 
 
 ("C:\Users\Jabari\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 136.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 144.
 
 [5]
-Overfull \hbox (3.52837pt too wide) in paragraph at lines 175--179
+Overfull \hbox (3.52837pt too wide) in paragraph at lines 183--188
 \OT1/cmr/m/n/10 Students dis-tributed sev-eral in-ter-net con-nected Rasp-berry
  Pi com-put-ers through-
  []
 
-<bliss.png, id=34, 1153.911pt x 266.79675pt>
-File: bliss.png Graphic file (type png)
- <use bliss.png>
-Package pdftex.def Info: bliss.png used on input line 182.
-(pdftex.def)             Requested size: 346.17596pt x 80.03963pt.
-
-Overfull \hbox (1.17596pt too wide) in paragraph at lines 182--184
- [] 
- []
-
-[6 <./bliss.png>] <breadboard.png, id=41, 286.06876pt x 386.6445pt>
+[6] <breadboard.png, id=41, 286.06876pt x 386.6445pt>
 File: breadboard.png Graphic file (type png)
-
-<use breadboard.png>
-Package pdftex.def Info: breadboard.png used on input line 200.
+ <use breadboard.png>
+Package pdftex.def Info: breadboard.png used on input line 205.
 (pdftex.def)             Requested size: 228.85532pt x 309.31601pt.
- [7 <./breadboard.png>]
-<tempLogFlowchart.png, id=46, 355.3275pt x 1158.3275pt>
+
+[7 <./breadboard.png>] <tempLogFlowchart.png, id=46, 355.3275pt x 1158.3275pt>
 File: tempLogFlowchart.png Graphic file (type png)
 
 <use tempLogFlowchart.png>
-Package pdftex.def Info: tempLogFlowchart.png used on input line 220.
+Package pdftex.def Info: tempLogFlowchart.png used on input line 231.
 (pdftex.def)             Requested size: 142.12846pt x 463.3228pt.
  [8] [9 <./tempLogFlowchart.png>] [10] [11]
 Missing character: There is no â in font cmr10!
@@ -321,7 +320,7 @@ grams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Jabari/AppD
 ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Use
 rs/Jabari/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy
 10.pfb>
-Output written on report.pdf (15 pages, 9501442 bytes).
+Output written on report.pdf (15 pages, 9503256 bytes).
 PDF statistics:
  90 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
