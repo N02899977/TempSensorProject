@@ -146,7 +146,7 @@
 				\item Raspberry Pi Single Board Computer (8)
 				\item Adafruit Raspberry Pi Enclosure(8)
 				\item MicroUSB + Wall Adapter Kit (8)
-				\item 4GB+ SD Card (8)
+				\item 4GB + SD Card (8)
 				\item Cobbler Cable + Pi Header Kit (8)
 				\item DS18B20 Digital Temperature Sensor (8)
 				\item Breadboards (8)
@@ -225,7 +225,7 @@
 				can still be resent from the local copy.
 
 				\begin{itemize}
-					\item tempLog.py: Creates a Cronjob (scheduled task) the first time tempLog.py executes. The Cronjob 
+					\item {\bfseries tempLog.py}: Creates a Cronjob (scheduled task) the first time tempLog.py executes. The Cronjob 
 									  executes tempLog.py every 10 minutes. The script reads the ambient temperature
 									  in celcius and writes it to a SQLite3 database file called climate\_info.db. tempLog.py was
 									  written by Heidi.
@@ -233,10 +233,10 @@
 							\includegraphics[scale=.4]{tempLogFlowchart.png}\\
 						\end{center}
 						
-					\item index.py: When passed a given start and stop date, index.py sets up a Flask server on the Pi and 
+					\item {\bfseries index.py}: When passed a given start and stop date, index.py sets up a Flask server on the Pi and 
 									converts the data from the SQLite database into JSON objects. The JSON is put onto the Flask server in
 									preparation to be sent to the LAMP server. index.py was written by Brendan.
-					\item json\_push.py: Creates the JSON post to push to data to the LAMP server. json\_push.py was written by Brendan.
+					\item {\bfseries json\_push.py}: Creates the JSON post to push to data to the LAMP server. json\_push.py was written by Brendan.
 				\end{itemize}
 				
 			\subsubsection{SQLite3 Database Schema (on Raspberry Pi)}	
@@ -255,9 +255,25 @@
 			ways without having to rewrite code relating to the data itself.		
 		
 			\subsubsection{Graphical User Interface (GUI) by Group A}
-				GUI A is written by Heidi and Jabari. It is written in HTML and JavaScript, and implements the Google Charts API
-				for graphical representation of the data. Group A chose this approach because it is a seamless process to pull JSON
-				and plug it into a Google Chart. Google chart is also well documented, and offers an abundance of different graphing features.
+				GUI A is written by Heidi and Jabari. It is written in HTML, JavaScript, and PHP, and implements the Google Charts API
+				for graphical representation of the data. Group A chose this approach because it is a seamless process to pull JSON, parse the data 
+				array, and plug it into a Google Chart. Google chart is also well documented, and offers an abundance of different graphing features.
+				
+				\begin{figure}[H]
+					\begin{center}
+						\includegraphics[scale=.4]{TempVersusTime.PNG}			
+					\end{center}
+					\captionsetup{labelformat=empty}
+					\caption{Google Chart's Line Chart used to graph temperature versus time per room}
+				\end{figure}				
+				
+				\begin{figure}[H]
+					\begin{center}						
+						\includegraphics[scale=.5]{averageFloorTemp.PNG}				
+					\end{center}
+					\captionsetup{labelformat=empty}
+					\caption{Google Chart's Bar Chart used to graph average temperature by floor}
+				\end{figure}			
 			
 			\subsubsection{Graphical User Interface (GUI) by Group B}
 				GUI B is written by  Cesar, Roberto, and Victoria.
@@ -278,7 +294,7 @@
 					
 			\subsubsection{Important PHP Scripts}		
 				\begin{itemize}
-					\item api\textbackslash input.php: Allows basic interaction between the Raspberry Pi and the LAMP server. Specifically json\_push.py.
+					\item {\bfseries\ api\textbackslash input.php}: Allows basic interaction between the Raspberry Pi and the LAMP server. Specifically json\_push.py.
 														Provides basic point of data collection. This script receives an HTTP GET request from the Pi that 
 														request when (via datetime)
 														was the last time this (a given Raspberry Pi) has pushed back to the MySQL database. input.php then  
@@ -286,21 +302,22 @@
 														data after this date, and sends it back in the form of an HTTP POST to input.php. input.php then takes 
 														the JSON data and writes it to the MySQL database on the LAMP server.
 										  
-					\item api\textbackslash climate.php: Receives HTTP GET (AJAX) requests for temperature data for a given room in the form of a JSON file. 
+					\item {\bfseries api\textbackslash climate.php}: Receives HTTP GET (AJAX) requests for temperature data for a given room in the form of a 	 																	 JSON file. 
 														 The script can also be provided an optional start and stop date to limit the range of the data that 
 														 is returned. If these 2 optional arguments are not provided, the full history for a given room is 
 														 provided by default. This file can be used to view a data dump, but is also use in the GUI for 
 														 parsing and graphic.
-					\item api\textbackslash device.php: Answers AJAX requests for the list of devices that have entries in the temperature database. This is
-										 in place for future device management - ability to add, remove, and contact individual devices on the project.
-					\item device\textbackslash index.php: Works in conjunction with api/device.php to display the devices on the project.	
+					\item {\bfseries api\textbackslash device.php}: Answers AJAX requests for the list of devices that have entries in the temperature 			 																	database. This is
+										 		        in place for future device management - ability to add, remove, and contact individual devices on the 
+										 		        project.
+					\item {\bfseries device\textbackslash index.php}: Works in conjunction with api/device.php to display the devices on the project.	
 					
-					\item inc\textbackslash climate.php: Used for inputting and querying data from the MySQL database.  	
+					\item {\bfseries inc\textbackslash climate.php}: Used for inputting and querying data from the MySQL database.  	
 					
-					\item inc\textbackslash device.php: Provides device management features. Currently allows for the ability to add devices to the project
+					\item {\bfseries inc\textbackslash device.php}: Provides device management features. Currently allows for the ability to add devices to 	 																	the project
 														and display specific information about devices.
 					
-					\item inc\textbackslash main.php: Provides functions for MySQL database connection, and references for password files. 
+					\item {\bfseries inc\textbackslash main.php}: Provides functions for MySQL database connection, and references for password files. 
 													  Also offers array treatment functions (SQL Escape and HTML entity treatment). This prevents
 													  SQL inject (injecting commands / queries into others queries). HTML entity treatment prevents special 
 													  characters from negatively impacting HTML (being parsed incorrectly).	
@@ -311,22 +328,22 @@
 	\section{Student Analysis}\label{sec:analysis}
 		\subsection{As of April 25, 2016}
 			\begin{itemize}
-				\item Brendan Lowe:
-				\item Cesar Done: The project thus far has been running very smoothly. We are lucky to have access to several rooms here on campus as well 
+				\item {\bfseries Brendan Lowe}:
+				\item {\bfseries Cesar Done}: The project thus far has been running very smoothly. We are lucky to have access to several rooms here on campus as well 
 								  as several network settings that students do not regularly have. The Pis have not given us any problems and the actual set 
 								  up and maintenance of them have been smooth as well. This project can  become a even bigger, funded project by the school
 								   if we manage to provide accurate as well as beneficial data to the school. Also if we can create a simple interface that 
 								   school can use to access the data, they would be more inclined to support and provide their services for the project. 
 							
 				
-				\item Heidi Fritz: This project had simple tasks that we planned out and I took on the back end operations that the raspberry pi would 
+				\item {\bfseries Heidi Fritz}: This project had simple tasks that we planned out and I took on the back end operations that the raspberry pi would 
 				carry out to collect the temperature and humidity data.  To do this I connected my own temperature sensor to a personal pi and wrote 
 				python script which consisted of four functions.  A function to get the temperature from the device, log the temperature and time into a 
 				SQLite3 database, create a Cronjob to repeat data collection, and a main function to start the process.  One struggle I came across was 
 				opening the device file so it would work on every pi.  I imported glob to find the correct path name within the pi.  The python script 
 				was easily integrated with the other scripts to work on one pi so we could make copies of the SD card.  In the end, I met the team goals 
 				and expectations.
-				\item Jabari Dash: The project so far is going well in that the data is being collected correctly.
+				\item {\bfseries Jabari Dash}: The project so far is going well in that the data is being collected correctly.
 									The beginning was challenging in that the group was lost because we were unsure of how to 
 									implement this project - particularly the intercommunication between the 
 									Raspberry Pis and the server. We wanted to used static IP addresses on the 
@@ -335,8 +352,8 @@
 									on the school network, with static IP addresses. This was a "quick and dirty" solution that 
 									allowed us to focus more on other elements of the projects, but also reduces the scalability
 									and portability of our implementation.
-				\item Roberto Milanese:
-				\item Victoria Bottali:	My goal for the end of the project is to have a working Flask app that is able to graph 
+				\item {\bfseries Roberto Milanese}:
+				\item {\bfseries Victoria Bottali}:	My goal for the end of the project is to have a working Flask app that is able to graph 
 										the temperature from the back-end based on different sets of parameters passed via user input. More 				
 										specifically, I would like the app to be able to dynamically plot data given a broad spectrum of 
 										options,including different periods of time and whether or not the user would like to see multiple data sets 
@@ -346,16 +363,54 @@
 			
 			\subsection{As of May 1, 2016}
 				\begin{itemize}
-					\item Brendan Lowe:
-					\item Cesar Done:
-					\item Heidi Fritz:
-					\item Jabari Dash:
-					\item Roberto Milanese:
-					\item Victoria Bottali:			
+					\item {\bfseries Brendan Lowe}:
+					\item {\bfseries Cesar Done}:
+					\item {\bfseries Heidi Fritz}: Towards the end of this project I was assigned a new assignment to put together a web-page that would help   												   with the 
+									   analysis of the data collected.  Our plan was to graph the Pi's temperatures on one graph.  I completed this by using 
+									   Ajax to get the JSON from a URL, then put it into an array that we could graph with Google Graphs.  I also added the 
+									   functionality of changing the start time that the graph displays.  I also used Bootstrap to help with the display of 
+									   elements within the web-page.  I also worked on the JavaScript page to get the averages of the Pis.  In retrospect, I 
+									   think this group worked well together with the short amount of time given to us.  
+					\item {\bfseries Jabari Dash}:
+					\item {\bfseries Roberto Milanese}:
+					\item {\bfseries Victoria Bottali}:			
 				\end{itemize}
 			
 %============================================================================================================================			
 	\newpage
+	\section{Obstacles \& Impacts}\label{sec:obstacles}	
+		\subsection{Networking}						
+			The largest obstacle was networking. Being on the school's ResNet network made it impossible for the Raspberry Pis to have static IP addresses 
+			because of permission denial. Static IP addresses were essential to the project because that was the only way to communicate with an individual 
+			Raspberry Pi when we wanted to check if it were still collecting. More importantly, static IP addresses were integral to the software upgrade 
+			process when a bug was found in the Python scripts. Without static IP addresses, we would have had to walk to each Pi - each resident's room with 
+			a Pi - and manually copy and paste the new script onto the Pi. The work around to ResNet's no static IP policy was to put the Raspberry Pis on a 	
+			subnet of the Academic network with a range of reserved static IP addresses. This solution worked smoothly in that we had bidirectional 
+			communication with the Pis. However, this solution relied solely on Brendan's position as Network Administrator, and would not have feasible 
+			without his extended networking permissions. This did expedite development; however, it also made the project less scalable.
+			
+		\subsection{Programming Language / Software Familiarity}
+			This project languages / technologies such as JavaScript, Python, PHP, MySQL, SQLite3, HTML, LATEX, Git commands, and Linux command. Provided
+			that each team member had varying levels of experience with each language, much of the project was a learning process as well. Though, all main 
+			goals were met, there were several language specific nuances that slowed down development time. For example, when Jabari was computing the average
+			temperature based off of the JSON file, he was computing the average in 3 levels of nested anonymous functions, and storing it in a variable 
+			that was declared on the outermost block. The function was not returning the correct value because the computed average was never leaving the 
+			anonymous functions because they were nested. The solution was to separate the anonymous functions, and compute and store each individual variable 
+			separately. This issue was caused JavaScript does not implement block scoping - a feature most modern programming languages have, and only more
+			experienced JavaScript programmers (Heidi and Brendan) were able to detect in Jabari's implementation.
+		
+		\subsection{External Factors}
+			No real world experiment or project is conducted in a vacuum. This project was conducted during the academic semester, and required the 
+			Raspberry Pis to placed in the rooms of residents while they were living there. The RA staff was chosen for several reasons: 1 person per room,
+			Jabari (who at the time was also an RA in Bliss) can access their rooms more easily, and the sensors could be more quickly deployed because
+			we were able to get all of their individual approval at time during a staff meeting. However, this approach did not prevent the project from
+			being affected. The 2 Of the Raspberry Pis on the 3rd floor were unplugged midway during the project, and the team was unaware of this until after 
+			2 weeks from when they first went offline. The data for these 2 weeks is unrecoverable. This severely impacts the integrity of the data in 
+			that full comparisons cannot be made for the near 30 days of data collection, because half of it is missing for the entire 3rd floor. 
+			
+%============================================================================================================================
+	\newpage
 	\section{Conclusion}\label{sec:conclusion}
+		The project was an overall success. All main project goals were accomplished.
 
 \end{document}

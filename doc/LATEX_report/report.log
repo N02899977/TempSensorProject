@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.24)  7 MAY 2016 04:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.24)  7 MAY 2016 19:05
 entering extended mode
 **./report.tex
 (report.tex
@@ -110,18 +110,18 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 ) (report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
 
 ("C:\Users\Jabari\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.m
 kii"
@@ -144,12 +144,12 @@ Package caption Info: End \AtBeginDocument code.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
-(Font)              using `OT1/cmr/bx/n' instead on input line 19.
+(Font)              using `OT1/cmr/bx/n' instead on input line 21.
 
 <rpi.jpg, id=1, 1927.2pt x 1284.8pt>
 File: rpi.jpg Graphic file (type jpg)
  <use rpi.jpg>
-Package pdftex.def Info: rpi.jpg used on input line 21.
+Package pdftex.def Info: rpi.jpg used on input line 23.
 (pdftex.def)             Requested size: 289.06754pt x 192.71169pt.
  [1
 
@@ -167,80 +167,80 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 <bliss.png, id=14, 1153.911pt x 266.79675pt>
 File: bliss.png Graphic file (type png)
  <use bliss.png>
-Package pdftex.def Info: bliss.png used on input line 53.
+Package pdftex.def Info: bliss.png used on input line 55.
 (pdftex.def)             Requested size: 346.17596pt x 80.03963pt.
 
-Overfull \hbox (1.17596pt too wide) in paragraph at lines 53--55
+Overfull \hbox (1.17596pt too wide) in paragraph at lines 55--57
  [] 
  []
 
 [2 <./bliss.png>] <brendan.jpg, id=20, 1927.2pt x 1284.8pt>
 File: brendan.jpg Graphic file (type jpg)
  <use brendan.jpg>
-Package pdftex.def Info: brendan.jpg used on input line 67.
+Package pdftex.def Info: brendan.jpg used on input line 69.
 (pdftex.def)             Requested size: 134.91779pt x 89.94519pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--69
+Underfull \hbox (badness 10000) in paragraph at lines 69--71
 
  []
 
 <heidi.jpg, id=21, 1927.2pt x 1284.8pt>
 File: heidi.jpg Graphic file (type jpg)
  <use heidi.jpg>
-Package pdftex.def Info: heidi.jpg used on input line 73.
+Package pdftex.def Info: heidi.jpg used on input line 75.
 (pdftex.def)             Requested size: 134.91779pt x 89.94519pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 73--76
+Underfull \hbox (badness 10000) in paragraph at lines 75--78
 
  []
 
 <roberto.jpg, id=22, 1927.2pt x 1284.8pt>
 File: roberto.jpg Graphic file (type jpg)
  <use roberto.jpg>
-Package pdftex.def Info: roberto.jpg used on input line 80.
+Package pdftex.def Info: roberto.jpg used on input line 82.
 (pdftex.def)             Requested size: 134.91779pt x 89.94519pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 80--82
+Underfull \hbox (badness 10000) in paragraph at lines 82--84
 
  []
 
 
-Underfull \hbox (badness 4303) in paragraph at lines 82--82
+Underfull \hbox (badness 4303) in paragraph at lines 84--84
 []|\OT1/cmr/m/n/10 Roberto han-dled front-end pro-
  []
 
 <cesar.jpg, id=23, 1927.2pt x 1284.8pt>
 File: cesar.jpg Graphic file (type jpg)
  <use cesar.jpg>
-Package pdftex.def Info: cesar.jpg used on input line 91.
+Package pdftex.def Info: cesar.jpg used on input line 93.
 (pdftex.def)             Requested size: 134.91779pt x 89.94519pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 91--93
+Underfull \hbox (badness 10000) in paragraph at lines 93--95
 
  []
 
 <jabari.jpg, id=24, 1927.2pt x 1284.8pt>
 File: jabari.jpg Graphic file (type jpg)
  <use jabari.jpg>
-Package pdftex.def Info: jabari.jpg used on input line 97.
+Package pdftex.def Info: jabari.jpg used on input line 99.
 (pdftex.def)             Requested size: 134.91779pt x 89.94519pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--99
+Underfull \hbox (badness 10000) in paragraph at lines 99--101
 
  []
 
 <victoria.jpg, id=25, 1927.2pt x 1284.8pt>
 File: victoria.jpg Graphic file (type jpg)
  <use victoria.jpg>
-Package pdftex.def Info: victoria.jpg used on input line 103.
+Package pdftex.def Info: victoria.jpg used on input line 105.
 (pdftex.def)             Requested size: 134.91779pt x 89.94519pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 103--105
+Underfull \hbox (badness 10000) in paragraph at lines 105--107
 
  []
 
 
-Underfull \hbox (badness 2205) in paragraph at lines 105--105
+Underfull \hbox (badness 2205) in paragraph at lines 107--107
 []|\OT1/cmr/m/n/10 Vic-to-ria han-dled client-side pro-
  []
 
@@ -250,28 +250,28 @@ Overfull \vbox (6.53831pt too high) has occurred while \output is active []
 
 [3 <./brendan.jpg> <./heidi.jpg> <./roberto.jpg> <./cesar.jpg> <./jabari.jpg> <
 ./victoria.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 127--129
+Underfull \hbox (badness 10000) in paragraph at lines 129--131
 
  []
 
 <pre_deployment.jpg, id=29, 626.34pt x 352.31625pt>
 File: pre_deployment.jpg Graphic file (type jpg)
  <use pre_deployment.jpg>
-Package pdftex.def Info: pre_deployment.jpg used on input line 132.
+Package pdftex.def Info: pre_deployment.jpg used on input line 134.
 (pdftex.def)             Requested size: 313.16922pt x 176.15768pt.
 
 [4 <./pre_deployment.jpg>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 144.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 146.
 
 
 ("C:\Users\Jabari\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 144.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 146.
 
 [5]
-Overfull \hbox (3.52837pt too wide) in paragraph at lines 183--188
+Overfull \hbox (3.52837pt too wide) in paragraph at lines 185--190
 \OT1/cmr/m/n/10 Students dis-tributed sev-eral in-ter-net con-nected Rasp-berry
  Pi com-put-ers through-
  []
@@ -279,58 +279,80 @@ Overfull \hbox (3.52837pt too wide) in paragraph at lines 183--188
 [6] <breadboard.png, id=41, 286.06876pt x 386.6445pt>
 File: breadboard.png Graphic file (type png)
  <use breadboard.png>
-Package pdftex.def Info: breadboard.png used on input line 205.
+Package pdftex.def Info: breadboard.png used on input line 207.
 (pdftex.def)             Requested size: 228.85532pt x 309.31601pt.
 
 [7 <./breadboard.png>] <tempLogFlowchart.png, id=46, 355.3275pt x 1158.3275pt>
 File: tempLogFlowchart.png Graphic file (type png)
 
 <use tempLogFlowchart.png>
-Package pdftex.def Info: tempLogFlowchart.png used on input line 231.
+Package pdftex.def Info: tempLogFlowchart.png used on input line 233.
 (pdftex.def)             Requested size: 142.12846pt x 463.3228pt.
  [8] [9 <./tempLogFlowchart.png>]
 <../graphs/sqlite3_schema.png, id=54, 274.02374pt x 223.83624pt>
 File: ../graphs/sqlite3_schema.png Graphic file (type png)
 
 <use ../graphs/sqlite3_schema.png>
-Package pdftex.def Info: ../graphs/sqlite3_schema.png used on input line 244.
+Package pdftex.def Info: ../graphs/sqlite3_schema.png used on input line 246.
 (pdftex.def)             Requested size: 191.8153pt x 156.6843pt.
- [10 <../graphs/sqlite3_schema.png>]
-<tempSensorProgramFlow.png, id=59, 545.03625pt x 575.14874pt>
-File: tempSensorProgramFlow.png Graphic file (type png)
 
-<use tempSensorProgramFlow.png>
-Package pdftex.def Info: tempSensorProgramFlow.png used on input line 273.
-(pdftex.def)             Requested size: 381.52278pt x 402.60138pt.
+<TempVersusTime.PNG, id=55, 808.2195pt x 423.984pt>
+File: TempVersusTime.PNG Graphic file (type png)
+ <use TempVersusTime.PNG>
+Package pdftex.def Info: TempVersusTime.PNG used on input line 264.
+(pdftex.def)             Requested size: 323.28207pt x 169.59058pt.
 
-Overfull \hbox (36.52278pt too wide) in paragraph at lines 273--273
+[10 <../graphs/sqlite3_schema.png>]
+<averageFloorTemp.PNG, id=60, 693.792pt x 345.08925pt>
+File: averageFloorTemp.PNG Graphic file (type png)
+
+<use averageFloorTemp.PNG>
+Package pdftex.def Info: averageFloorTemp.PNG used on input line 272.
+(pdftex.def)             Requested size: 346.89514pt x 172.5442pt.
+
+Overfull \hbox (1.89514pt too wide) in paragraph at lines 272--273
  [] 
  []
 
-[11 <./tempSensorProgramFlow.png>] [12] [13] [14] [15] (report.aux)
+[11 <./TempVersusTime.PNG> <./averageFloorTemp.PNG>]
+<tempSensorProgramFlow.png, id=66, 545.03625pt x 575.14874pt>
+File: tempSensorProgramFlow.png Graphic file (type png)
+
+<use tempSensorProgramFlow.png>
+Package pdftex.def Info: tempSensorProgramFlow.png used on input line 292.
+(pdftex.def)             Requested size: 381.52278pt x 402.60138pt.
+
+Overfull \hbox (36.52278pt too wide) in paragraph at lines 292--292
+ [] 
+ []
+
+LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 297.
+[12 <./tempSensorProgramFlow.png>] [13] [14] [15] [16] [17] [18] (report.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 2740 strings out of 493634
- 43027 string characters out of 3134831
- 106689 words of memory out of 3000000
- 6133 multiletter control sequences out of 15000+200000
- 6719 words of font info for 24 fonts, out of 3000000 for 9000
+ 2755 strings out of 493634
+ 43311 string characters out of 3134831
+ 107689 words of memory out of 3000000
+ 6144 multiletter control sequences out of 15000+200000
+ 6974 words of font info for 25 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  36i,10n,43p,4033b,427s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Jabari/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmbx10.pfb><C:/Users/Jabari/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmbx12.pfb><C:/Users/Jabari/AppData/Local/Programs/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Jabari/AppData/Local/Pro
-grams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Jabari/AppD
-ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Use
-rs/Jabari/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy
-10.pfb>
-Output written on report.pdf (16 pages, 9532197 bytes).
+s/cm/cmbsy10.pfb><C:/Users/Jabari/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmbx10.pfb><C:/Users/Jabari/AppData/Local/Programs/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Jabari/AppData/Local/Pro
+grams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Jabari/Ap
+pData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Us
+ers/Jabari/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
+l10.pfb><C:/Users/Jabari/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb>
+Output written on report.pdf (19 pages, 9595291 bytes).
 PDF statistics:
- 97 PDF objects out of 1000 (max. 8388607)
+ 115 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 76 words of extra memory for PDF output out of 10000 (max. 10000000)
 
