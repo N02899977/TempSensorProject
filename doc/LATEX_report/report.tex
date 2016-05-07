@@ -1,3 +1,5 @@
+% Written by Jabari Dash
+
 \documentclass{article}
 
 \usepackage{graphicx}
@@ -230,6 +232,7 @@
 						\begin{center}
 							\includegraphics[scale=.4]{tempLogFlowchart.png}\\
 						\end{center}
+						
 					\item index.py: When passed a given start and stop date, index.py sets up a Flask server on the Pi and 
 									converts the data from the SQLite database into JSON objects. The JSON is put onto the Flask server in
 									preparation to be sent to the LAMP server. index.py was written by Brendan.
@@ -237,7 +240,11 @@
 				\end{itemize}
 				
 			\subsubsection{SQLite3 Database Schema (on Raspberry Pi)}	
-				Each Pi has two SQLite3 database files. climate\_info.db stores all of the temperature data.
+				Each Pi has a SQLite3 database file called climate\_info.db that stores all of the temperature data.
+				
+				\begin{center}
+					\includegraphics[scale=.7]{../graphs/sqlite3_schema.png}
+				\end{center}
 			
 			\subsubsection{MySQL Database Schema (on LAMP Server)}
 			
@@ -249,7 +256,8 @@
 		
 			\subsubsection{Graphical User Interface (GUI) by Group A}
 				GUI A is written by Heidi and Jabari. It is written in HTML and JavaScript, and implements the Google Charts API
-				for graphical representation of the data.
+				for graphical representation of the data. Group A chose this approach because it is a seamless process to pull JSON
+				and plug it into a Google Chart. Google chart is also well documented, and offers an abundance of different graphing features.
 			
 			\subsubsection{Graphical User Interface (GUI) by Group B}
 				GUI B is written by  Cesar, Roberto, and Victoria.
@@ -264,31 +272,38 @@
 			from the server to each Pi collects the local data from each Pi, and compiles all of the temperature data into one large
 			database on the LAMP server.
 			
-			\subsubsection{PHP Scripts}		
+			\begin{center}
+				\includegraphics[scale=.7]{tempSensorProgramFlow.png}\\
+			\end{center}
+					
+			\subsubsection{Important PHP Scripts}		
 				\begin{itemize}
-					\item api\textbackslash input.php: Allows basic interaction between Rasspberry Pi ad Server. Specificially json\_push.py. Provides basic point
-										  of data collection. This script recieves an http request from the pi about when was the last time in the
-										  MySQL database, and passes that back to json\_push.py. 
+					\item api\textbackslash input.php: Allows basic interaction between the Raspberry Pi and the LAMP server. Specifically json\_push.py.
+														Provides basic point of data collection. This script receives an HTTP GET request from the Pi that 
+														request when (via datetime)
+														was the last time this (a given Raspberry Pi) has pushed back to the MySQL database. input.php then  
+														passes the most recent date back to json\_push.py. The Pi then queries its own database, collects all 
+														data after this date, and sends it back in the form of an HTTP POST to input.php. input.php then takes 
+														the JSON data and writes it to the MySQL database on the LAMP server.
 										  
-										  Recieves an HTTP Post (of json data) from the json\_push.py of all data after time stamp, and then writes the
-										  json data into the mysql database on the lamp server.
-										  
-					\item api\textbackslash climate.php: http get (ajax) request is sent to this script. The request is from the View/GUI, and service that would 
-											like to display this data. Provided room number, and optional start and end date, this script returns 
-											the temperature data in the form of a json file.
-					\item api\textbackslash device.php: Answers ajax request that for list of devices that have entries in the temperature database. This is
-										 in place for future device management. (ability to add, remove, and contact individual devices on the
-										 project.
+					\item api\textbackslash climate.php: Receives HTTP GET (AJAX) requests for temperature data for a given room in the form of a JSON file. 
+														 The script can also be provided an optional start and stop date to limit the range of the data that 
+														 is returned. If these 2 optional arguments are not provided, the full history for a given room is 
+														 provided by default. This file can be used to view a data dump, but is also use in the GUI for 
+														 parsing and graphic.
+					\item api\textbackslash device.php: Answers AJAX requests for the list of devices that have entries in the temperature database. This is
+										 in place for future device management - ability to add, remove, and contact individual devices on the project.
 					\item device\textbackslash index.php: Works in conjunction with api/device.php to display the devices on the project.	
 					
-					\item inc\textbackslach climate.php: Used for inputting and querying data from the MySQL database.  	
+					\item inc\textbackslash climate.php: Used for inputting and querying data from the MySQL database.  	
 					
-					\item inc\textbackslach device.php: Provides device management features. Add and displaying of device specific info.
+					\item inc\textbackslash device.php: Provides device management features. Currently allows for the ability to add devices to the project
+														and display specific information about devices.
 					
-					\item inc\textbackslach main.php: Provides functions for MySQL database connection, and reference for password files. 
-													  Array treatment functions (SQL Escape and HTML entity treatment). This prevents
-													  SQL inject (injecting commands / queries into others). HTML entity treatment prevents special characters 
-													  from negatively impacting HTML.	
+					\item inc\textbackslash main.php: Provides functions for MySQL database connection, and references for password files. 
+													  Also offers array treatment functions (SQL Escape and HTML entity treatment). This prevents
+													  SQL inject (injecting commands / queries into others queries). HTML entity treatment prevents special 
+													  characters from negatively impacting HTML (being parsed incorrectly).	
 				\end{itemize}						
 		
 %====================================================================================================================================		

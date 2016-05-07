@@ -1,3 +1,7 @@
+/**
+ * Written by Heidi Fritz
+ * */
+
 function isNumber(obj) { return !isNaN(parseFloat(obj))}
 
 /**
@@ -43,36 +47,6 @@ function getAverage(room) {
      var length = $.getLength(url);
      //console.log("Length: " + length);
      average = sum/length;
+     
      return average;
-	
-	// Get JSON object from a the above link (stored in climate_params)
-	/*$.getJSON( climate_params, function(results) {
-	
-	}).done(function(results) {
-		
-		// Retrieve the length of the array of entries
-		length = results["info"].length;
-
-   	  // Loop through integer array, and sum all indices
-      results["info"].forEach(function(packet) {
-	        
-    	// Add all of the temperature values into one variable called sum
-	    sum = sum + parseFloat(packet.tempF);		   
-	    });
-      
-      var average = sum / length;
-      
-      // These print line statements demonstrate that the values
-      // are being retrieved and computed properly
-      console.log("Room:" + room);
-      console.log("Sum: " + sum);
-      console.log("Length: " + length);
-      console.log("Average: " + average);
-      
-      // This line ensures that the data type of average is numeric
-      console.log("Average is a number: " + isNumber(average));
-      console.log(""); 
-	});*/
-
-	
 }
