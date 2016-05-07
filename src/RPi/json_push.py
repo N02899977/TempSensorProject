@@ -1,3 +1,6 @@
+# Written by Brendan Lowe
+
+
 #!/usr/bin/python
 import sqlite3
 import time
@@ -5,7 +8,6 @@ import json
 import urllib
 import requests
 from crontab import CronTab  # must do 'sudo pip install python-crontab'
-
 
 def json_push():
 

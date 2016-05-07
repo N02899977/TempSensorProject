@@ -11,8 +11,6 @@ from crontab import CronTab  # must do 'sudo pip install python-crontab'
 import datetime
 import glob
 
-
-
 # Returns temperature in Celcius
 def getTemp(devicefile):
         try:

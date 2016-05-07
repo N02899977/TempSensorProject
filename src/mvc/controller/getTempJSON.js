@@ -1,3 +1,7 @@
+/**
+ * Written by Heidi Fritz
+ * */
+
 function isNumber(obj) { return !isNaN(parseFloat(obj))}
 
 /**
