@@ -30,7 +30,7 @@
         
         
         <footer>
-            <div class="container">
+            <div id="footer">
                 <p>
                     &copy; 2016 Heidi Fritz and Jabari Dash
                     							
