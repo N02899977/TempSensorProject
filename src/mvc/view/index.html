@@ -8,26 +8,32 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../css/main.css">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <div class="container" style="padding: 30px">
-    	<p>documents can go here.</p>
+    	
+    	<!--
+    	<p>documents can go here.</p> -->
+    	
+    	<!-- Can you find a way to center this PDF and have it scale better? -->
+    	<center>
+		<embed src="report.pdf" width="500" height="700" type='application/pdf'>
+		</center>
     </div>
   </head>
   <body>
   	<div id="top-nav"> </div>
-  	
-    
+  	    
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.4.0/holder.js"></script>
     <script type="text/javascript">
 			$(function(){
-				$("#top-nav").load("inc/nav.php", function(){
+				$("#top-nav").load("../inc/nav.php", function(){
 					$(".home").addClass("active");					
 				});
 			});
-	</script>
+	</script>	
   </body>
 </html>
