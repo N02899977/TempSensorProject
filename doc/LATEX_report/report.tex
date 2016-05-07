@@ -264,7 +264,32 @@
 			from the server to each Pi collects the local data from each Pi, and compiles all of the temperature data into one large
 			database on the LAMP server.
 			
-			\subsubsection{PHP Scripts}			
+			\subsubsection{PHP Scripts}		
+				\begin{itemize}
+					\item api\textbackslash input.php: Allows basic interaction between Rasspberry Pi ad Server. Specificially json\_push.py. Provides basic point
+										  of data collection. This script recieves an http request from the pi about when was the last time in the
+										  MySQL database, and passes that back to json\_push.py. 
+										  
+										  Recieves an HTTP Post (of json data) from the json\_push.py of all data after time stamp, and then writes the
+										  json data into the mysql database on the lamp server.
+										  
+					\item api\textbackslash climate.php: http get (ajax) request is sent to this script. The request is from the View/GUI, and service that would 
+											like to display this data. Provided room number, and optional start and end date, this script returns 
+											the temperature data in the form of a json file.
+					\item api\textbackslash device.php: Answers ajax request that for list of devices that have entries in the temperature database. This is
+										 in place for future device management. (ability to add, remove, and contact individual devices on the
+										 project.
+					\item device\textbackslash index.php: Works in conjunction with api/device.php to display the devices on the project.	
+					
+					\item inc\textbackslach climate.php: Used for inputting and querying data from the MySQL database.  	
+					
+					\item inc\textbackslach device.php: Provides device management features. Add and displaying of device specific info.
+					
+					\item inc\textbackslach main.php: Provides functions for MySQL database connection, and reference for password files. 
+													  Array treatment functions (SQL Escape and HTML entity treatment). This prevents
+													  SQL inject (injecting commands / queries into others). HTML entity treatment prevents special characters 
+													  from negatively impacting HTML.	
+				\end{itemize}						
 		
 %====================================================================================================================================		
 	\newpage
