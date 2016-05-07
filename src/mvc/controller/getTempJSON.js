@@ -5,10 +5,48 @@ function isNumber(obj) { return !isNaN(parseFloat(obj))}
  */
 function getAverage(room) {		
 	var sum = 0;
-	climate_params = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=' + room;
+	var url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=' + room;
+	var average = 0;
+	
+	jQuery.extend({
+        	getSum: function(url){
+		        var sum = 0;
+		        $.ajax({
+		          url: url,
+				  data: {info: 1},
+		          dataType: 'json',
+		          async: false,
+		          success: function(results){
+					results["info"].forEach(function(item) {
+				          sum = sum + parseFloat(item.tempF);
+				    });},
+		        });
+		    return sum;
+        	}, // end getAverageTemp
+        	getLength: function(url){
+		        var length;
+		        $.ajax({
+		          url: url,
+				  data: {info: 1},
+		          dataType: 'json',
+		          async: false,
+		          success: function(results){
+					length = results["info"].length;
+					},
+		        });
+		    return length;
+        	},  // end getLength
+     });  // end jQuery.extend
+     
+     var sum = $.getSum(url);
+     //console.log("Sum: " + sum);
+     var length = $.getLength(url);
+     //console.log("Length: " + length);
+     average = sum/length;
+     return average;
 	
 	// Get JSON object from a the above link (stored in climate_params)
-	$.getJSON( climate_params, function(results) {
+	/*$.getJSON( climate_params, function(results) {
 	
 	}).done(function(results) {
 		
@@ -22,10 +60,7 @@ function getAverage(room) {
 	    sum = sum + parseFloat(packet.tempF);		   
 	    });
       
-      average = sum / length;
-      
-      // Despite the fact that I recalculate average here, it still returns 20 
-      // I suppose this is because it is hard coded
+      var average = sum / length;
       
       // These print line statements demonstrate that the values
       // are being retrieved and computed properly
@@ -36,9 +71,8 @@ function getAverage(room) {
       
       // This line ensures that the data type of average is numeric
       console.log("Average is a number: " + isNumber(average));
-      console.log("");   
-	});
+      console.log(""); 
+	});*/
 
-	// Average
-	return average;
+	
 }

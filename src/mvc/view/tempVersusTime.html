@@ -151,51 +151,51 @@
         url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=B03&startTime=' + date;
         
         var DataB03 = $.getDataB03(url);
-        console.log(DataB03);
+        //console.log(DataB03);
         
         //108
         url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=108&startTime=' + date;
         
         var Data108 = $.getData108(url);
-        console.log(Data108);
+        //console.log(Data108);
         
         // 120
         url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=120&startTime=' + date;
         
         var Data120 = $.getData120(url);
-        console.log(Data120);        
+        //console.log(Data120);        
         
         //209
         url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=209&startTime=' + date;
         
         var Data209 = $.getData209(url);
-        console.log(Data209);
+        //console.log(Data209);
         
         
         //223
         url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=223&startTime=' + date;
         
         var Data223 = $.getData223(url);
-        console.log(Data223);
+        //console.log(Data223);
         
         
         //308
         url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=308&startTime=2016-04-08';
         
         var Data308 = $.getData308(url);
-        console.log(Data308);
+        //console.log(Data308);
         
         //323
         url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=323&startTime=2016-04-08';
         
         var Data323 = $.getData323(url);
-        console.log(Data323);
+        //console.log(Data323);
         
         var allData = [];
         allData[0] = DataB03;
         allData[1] = Data108;
         allData[2] = Data120;
-		console.log(allData);
+		//console.log(allData);
         
 		  // Basement03 Graph
           var data1 = new google.visualization.DataTable();
@@ -418,22 +418,22 @@
 		<h4>Basement Temperature</h4>
 		<h5>From April 30, 2016 to Today</h5>
 	  <div id="chart_B03" style="width: 100%; height: 500px;padding-top: 15px"></div>
-	  <h4>Basement Temperature</h4>
+	  <h4>Room 108 Temperature</h4>
 		<h5>From April 30, 2016 to Today</h5>
 	  <div id="chart_108" style="width: 100%; height: 500px;padding-top: 15px"></div>
-	  <h4>Basement Temperature</h4>
+	  <h4>Room 120 Temperature</h4>
 		<h5>From April 30, 2016 to Today</h5>
 	  <div id="chart_120" style="width: 100%; height: 500px;padding-top: 15px"></div>
-	  <h4>Basement Temperature</h4>
+	  <h4>Room 209 Temperature</h4>
 		<h5>From April 30, 2016 to Today</h5>
 	  <div id="chart_209" style="width: 100%; height: 500px;padding-top: 15px"></div>
-	  <h4>Basement Temperature</h4>
+	  <h4>Room 223 Temperature</h4>
 		<h5>From April 30, 2016 to Today</h5>
 	  <div id="chart_223" style="width: 100%; height: 500px;padding-top: 15px"></div>
-	  <h4>Basement Temperature</h4>
+	  <h4>Room 308 Temperature</h4>
 		<h5>From April 8, 2016 to April 19, 2016</h5>
 	  <div id="chart_308" style="width: 100%; height: 500px;padding-top: 15px"></div>
-	  <h4>Basement Temperature</h4>
+	  <h4>Room 323 Temperature</h4>
 		<h5>From April 8, 2016 to April 16, 2016</h5>
 	  <div id="chart_323" style="width: 100%; height: 500px;padding-top: 15px"></div>
 	</div>
