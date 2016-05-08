@@ -362,8 +362,10 @@
 	\section{Student Analysis}\label{sec:analysis}
 		\subsection{As of April 25, 2016}
 			\begin{itemize}
-				\item {\bfseries Brendan Lowe}:
-				\item {\bfseries Cesar Done}: The project thus far has been running very smoothly. We are lucky to have access to several rooms here on campus as well 
+				\item {\bfseries Brendan Lowe}: The Raspberry Pi's have been running for a few weeks. A couple bug have been noted with the TempLog.py and 														readings below 10 degrees C. We were able to remedy the issue and upload new code to the installed Raspberry 
+												Pi without the need for physical access.
+				
+				\item {\bfseries Cesar Done}: The project thus far has been running very smoothly. We are lucky to have access to several rooms here on campus 									as well 
 								  as several network settings that students do not regularly have. The Pis have not given us any problems and the actual set 
 								  up and maintenance of them have been smooth as well. This project can  become a even bigger, funded project by the school
 								   if we manage to provide accurate as well as beneficial data to the school. Also if we can create a simple interface that 
@@ -398,7 +400,8 @@
 			
 			\subsection{As of May 8, 2016}
 				\begin{itemize}
-					\item {\bfseries Brendan Lowe}:
+					\item {\bfseries Brendan Lowe}: The devices have been in the field for about a month and they have been consistently phoning home 	 															information to the Lamp Server. The interaction between the Raspberry Pi and the Lamp Server dominated the 													pre-deployment work that I did. Since the deployment, the focus of my development shifted. I began to try 
+													to polish the Raspberry Pi's interface to make it more user friendly and more of a finished product.
 					\item {\bfseries Cesar Done}: During the month of may I was handling the python script that would create the .csv and .xls file that 		 												  contains the temperature data for all of the rooms. The script asks for the user input of the room number 													  and will go online, retrieve the JSON data, parse, and create the two files with the names of the room and 
 												  the data. The script works, but browsers do not support native Python so it was difficult to incorporate the
 												  script to our web-page. I tried to use an embedded Python emulator, but it did not work since our script 
@@ -455,7 +458,7 @@
 			that full comparisons cannot be made for the near 30 days of data collection, because half of it is missing for the entire 3rd floor. 
 			
 %============================================================================================================================
-	%\newpage
+	\newpage
 	\section{Conclusion}\label{sec:conclusion}
 		The project was an overall success. All main project goals were accomplished: 8 Raspberry Pis with temperature sensors were dispersed
 		around Bliss Hall, each Pi collected the ambient temperature every 10 minutes, the temperature was store locally in a SQLite3 database
