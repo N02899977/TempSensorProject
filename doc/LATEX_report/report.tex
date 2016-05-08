@@ -396,10 +396,15 @@
 										to rely on a a few "quick" fixes here and there in the interest of time.   	
 			\end{itemize}
 			
-			\subsection{As of May 5, 2016}
+			\subsection{As of May 8, 2016}
 				\begin{itemize}
 					\item {\bfseries Brendan Lowe}:
-					\item {\bfseries Cesar Done}:
+					\item {\bfseries Cesar Done}: During the month of may I was handling the python script that would create the .csv and .xls file that 		 												  contains the temperature data for all of the rooms. The script asks for the user input of the room number 													  and will go online, retrieve the JSON data, parse, and create the two files with the names of the room and 
+												  the data. The script works, but browsers do not support native Python so it was difficult to incorporate the
+												  script to our web-page. I tried to use an embedded Python emulator, but it did not work since our script 
+												  requires certain modules and the emulator only supports basic Python code. Because of this I was only able 
+												  to run the script in Eclipse IDE with the Aptana Plug-in. To show that the script worked I provided the .csv 
+												  and .xls files on our GitHub, alongside the code.
 					\item {\bfseries Heidi Fritz}: Towards the end of this project I was assigned a new assignment to put together a web-page that would help   												   with the 
 									   analysis of the data collected.  Our plan was to graph the Pi's temperatures on one graph.  I completed this by using 
 									   Ajax to get the JSON from a URL, then put it into an array that we could graph with Google Graphs.  I also added the 
@@ -413,10 +418,8 @@
 												   it does not return the computer value. It only returns 0, or whatever static value that I tell it to 
 												   return. It is clear that this has something to do with how  JavaScript allocates memory for variables,
 												   but I do not currently know how to resolve this problem.
-					\item {\bfseries Roberto Milanese}: Front end development is going well. Our group decided to use the Flask framework and Pygal, a 																	graphing library for Python. As of right now, the GUI is barebones. Our next step is to enable the 																code to accept user passed parameters to graph and make the site more clean-cut. 
-
-					
-					\item {\bfseries Victoria Bottali}:			
+					\item {\bfseries Roberto Milanese}: Front end development is going well. Our group decided to use the Flask framework and Pygal, a 																	graphing library for Python. As of right now, the GUI is bare-bones. Our next step is to enable the 																code to accept user passed parameters to graph and make the site more clean-cut. 					
+					\item {\bfseries Victoria Bottali}: A user interface has been added that can chart by room, or by average floor temperature based on user 															specifications. The user inputs what rooms they would like to view data for, as well as the time span. 														The Flask app uses a get request to receive user input, and essentially uses the methods previously 															worked on.			
 				\end{itemize}
 			
 %============================================================================================================================			

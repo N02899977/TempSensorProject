@@ -22,9 +22,9 @@
 \contentsline {subsubsection}{\numberline {5.4.1}Important PHP Scripts}{13}
 \contentsline {section}{\numberline {6}Student Analysis}{14}
 \contentsline {subsection}{\numberline {6.1}As of April 25, 2016}{14}
-\contentsline {subsection}{\numberline {6.2}As of May 5, 2016}{15}
-\contentsline {section}{\numberline {7}Obstacles}{16}
-\contentsline {subsection}{\numberline {7.1}Networking}{16}
-\contentsline {subsection}{\numberline {7.2}Programming Language / Software Familiarity}{16}
-\contentsline {subsection}{\numberline {7.3}External Factors}{16}
-\contentsline {section}{\numberline {8}Conclusion}{17}
+\contentsline {subsection}{\numberline {6.2}As of May 8, 2016}{15}
+\contentsline {section}{\numberline {7}Obstacles}{17}
+\contentsline {subsection}{\numberline {7.1}Networking}{17}
+\contentsline {subsection}{\numberline {7.2}Programming Language / Software Familiarity}{17}
+\contentsline {subsection}{\numberline {7.3}External Factors}{17}
+\contentsline {section}{\numberline {8}Conclusion}{18}
