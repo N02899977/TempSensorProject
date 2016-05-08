@@ -20,6 +20,7 @@
       
       var url = null;
       var roomNumbers = ['OUTSIDE', 'B03', 108, 120, 209, 223, 308, 323];
+      var date = '2016-04-30';
       
       function getDataToArray(room, date) {
       	url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=' + room + '&startTime=' + date;
@@ -45,7 +46,35 @@
     	return array;
       }
         
-      var date = '2016-04-30';  
+      // starting to implement graphs that show up with button click
+      // to improve load time, but not finished
+      function drawOtherChart(dataArray, room)
+      {
+          var data = new google.visualization.DataTable();
+          
+          data.addColumn('datetime', 'Time');
+          data.addColumn('number', room);
+		    
+		   for(var i = 0; i < dataArray.length-1; i=i+2)
+          {
+          	data.addRow([
+		          new Date(dataArray[i]),
+		          parseFloat(dataArray[i+1]),
+		        ]);
+          }
+          
+          var options = {
+	      	      
+	        legend: { position: 'right' },
+	        interpolateNulls: true
+          };
+          
+          var chart = new google.visualization.LineChart(document.getElementById('chart' + room));
+
+          chart.draw(data, options);
+          
+      }
+        
       function drawChart() {
         
       	
@@ -391,7 +420,7 @@
 				  <div class="col-xs-12 col-md-8"><p align="left">&copy; 2016 Heidi Fritz and Jabari Dash</p>
 				  	
 				  </div>
-				  <div class="col-xs-6 col-md-4"><p align="left">Discalimer: Some pages on this website currently are not compatible with Firefox or Safari</p></div>
+				  <div class="col-xs-6 col-md-4"><p align="left">Disclaimer: Some pages on this website currently are not compatible with Firefox or Safari</p></div>
 				 </div>
 				 
 			 </div>
