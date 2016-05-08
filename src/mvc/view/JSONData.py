@@ -3,21 +3,15 @@ import json
 import csv
 import xlwt
 
-
-#--------Written By Cesar Done--------
-
-
 #Write data to .csv file and .xls file
 def writeData(data):
- 
     #Load JSON data 
     theJSON = json.loads(data)
-    #Create temp.csv file
-    tempFileWriter = csv.writer(open("temp.csv", "wb+"))
+    #Create ROOMNUMBER temp.csv file
+    tempFileWriter = csv.writer(open(theJSON["room"] + " temp.csv", "wb+"))
     tempFileWriter.writerow(["Time                 "+ "Temp C   "+ "Temp F "])
        
     #Add data to the .csv file 
-    
     try:
         count = 0
         while (True):  #Loop until out of bounds
@@ -26,9 +20,8 @@ def writeData(data):
                                  theJSON["info"][count]["tempF"]])    
             count = count + 1
     except IndexError:
-        print ".cvs created"
+        print (".cvs created")
     
-        
     #Add data to the .xls file
     wb = xlwt.Workbook()             
     tempData = wb.add_sheet('Temp Data')
@@ -43,11 +36,11 @@ def writeData(data):
             tempData.write(count, 2, theJSON["info"][count]["tempF"])   #Temp F Column
             count = count + 1
     except IndexError:
-        print ".xls created"
+        print (".xls created")
         
-    wb.save("temp.xls")     #Save .xls file to "temp.xls"
+    wb.save(theJSON["room"] + " temp.xls")     #Save .xls file to "ROOMNUMBER temp.xls"
     
-    print "Created .cvs & .xls for Bliss Hall Room " + theJSON["room"]
+    print ("Created .cvs & .xls for Bliss Hall Room " + theJSON["room"])
                
 def main():
     room = input("Input Room Number (for B03 type in 03 & for OUTSIDE type in 0) ")  #Input room number to create new .csv and .xls files
@@ -82,9 +75,8 @@ def main():
         data = webUrl.read()
         writeData(data)
     else:
-        print "Recieved an error from server, cannot retrieve results " + str(webUrl.getcode)
+        print ("Recieved an error from server, cannot retrieve results " + str(webUrl.getcode))
         
 #Start main()    
 if __name__ == "__main__":
     main()
-     
