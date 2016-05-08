@@ -281,7 +281,7 @@
 						\includegraphics[scale=.4]{TempVersusTime.PNG}			
 					\end{center}
 					\captionsetup{labelformat=empty}
-					\caption{Google Chart's Line Chart used to graph temperature versus time per room}
+					\caption{Google Chart's Line Chart used to graph temperature versus time by room}
 				\end{figure}				
 				
 				\begin{figure}[H]
@@ -293,8 +293,25 @@
 				\end{figure}			
 			
 			\subsubsection{Graphical User Interface (GUI) by Group B}
-				GUI B is written by  Cesar, Roberto, and Victoria.
-								
+				GUI B is written by Victoria and Roberto. It is written in HTML, and Python, and implements the Pygal and Flask libraries to graph
+				data.
+				
+				\begin{figure}[H]
+					\begin{center}
+						\includegraphics[scale=.48]{../graphs/GUI_B_by_room.PNG}
+					\end{center}
+					\captionsetup{labelformat=empty}
+					\caption{Pygal Python library used to graph temperature versus time by room}
+				\end{figure}			
+				
+				\begin{figure}[H]
+					\begin{center}
+						\includegraphics[scale=.58]{../graphs/GUI_B_by_floor.PNG}
+					\end{center}
+					\captionsetup{labelformat=empty}
+					\caption{Pygal Python library used to graph temperature versus time by floor}
+				\end{figure}
+												
 %------------------------------------------------------------------------------------------------------------------------------------
 			
 	\newpage		
@@ -369,7 +386,8 @@
 									on the school network, with static IP addresses. This was a "quick and dirty" solution that 
 									allowed us to focus more on other elements of the projects, but also reduces the scalability
 									and portability of our implementation.
-				\item {\bfseries Roberto Milanese}:
+				\item {\bfseries Roberto Milanese}: The project is moving along well. It was harder than expected to get the Pis set up for deployment, and we 													luckily had a group member able to make amendments to the network to help us even further. I look forward 														to beginning GUI/front end development.
+				
 				\item {\bfseries Victoria Bottali}:	My goal for the end of the project is to have a working Flask app that is able to graph 
 										the temperature from the back-end based on different sets of parameters passed via user input. More 				
 										specifically, I would like the app to be able to dynamically plot data given a broad spectrum of 
@@ -395,7 +413,9 @@
 												   it does not return the computer value. It only returns 0, or whatever static value that I tell it to 
 												   return. It is clear that this has something to do with how  JavaScript allocates memory for variables,
 												   but I do not currently know how to resolve this problem.
-					\item {\bfseries Roberto Milanese}:
+					\item {\bfseries Roberto Milanese}: Front end development is going well. Our group decided to use the Flask framework and Pygal, a 																	graphing library for Python. As of right now, the GUI is barebones. Our next step is to enable the 																code to accept user passed parameters to graph and make the site more clean-cut. 
+
+					
 					\item {\bfseries Victoria Bottali}:			
 				\end{itemize}
 			
