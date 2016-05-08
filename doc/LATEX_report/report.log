@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.24)  7 MAY 2016 19:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.24)  7 MAY 2016 23:34
 entering extended mode
 **./report.tex
 (report.tex
@@ -276,68 +276,82 @@ Overfull \hbox (3.52837pt too wide) in paragraph at lines 185--190
  Pi com-put-ers through-
  []
 
-[6] <breadboard.png, id=41, 286.06876pt x 386.6445pt>
+<../graphs/TempSensorProgramFlowOfEvents.png, id=37, 501.875pt x 1059.96pt>
+File: ../graphs/TempSensorProgramFlowOfEvents.png Graphic file (type png)
+
+<use ../graphs/TempSensorProgramFlowOfEvents.png>
+Package pdftex.def Info: ../graphs/TempSensorProgramFlowOfEvents.png used on in
+put line 196.
+(pdftex.def)             Requested size: 150.56366pt x 317.99045pt.
+ [6 <../graphs/TempSensorProgramFlowOfEvents.png>] <breadboard.png, id=43, 286.
+06876pt x 386.6445pt>
 File: breadboard.png Graphic file (type png)
- <use breadboard.png>
-Package pdftex.def Info: breadboard.png used on input line 207.
+
+<use breadboard.png>
+Package pdftex.def Info: breadboard.png used on input line 215.
 (pdftex.def)             Requested size: 228.85532pt x 309.31601pt.
+ [7 <./breadboard.png>]
+<../graphs/tempLog.png, id=48, 1036.87375pt x 284.06125pt>
+File: ../graphs/tempLog.png Graphic file (type png)
 
-[7 <./breadboard.png>] <tempLogFlowchart.png, id=46, 355.3275pt x 1158.3275pt>
-File: tempLogFlowchart.png Graphic file (type png)
+<use ../graphs/tempLog.png>
+Package pdftex.def Info: ../graphs/tempLog.png used on input line 242.
+(pdftex.def)             Requested size: 362.91124pt x 99.42291pt.
 
-<use tempLogFlowchart.png>
-Package pdftex.def Info: tempLogFlowchart.png used on input line 233.
-(pdftex.def)             Requested size: 142.12846pt x 463.3228pt.
- [8] [9 <./tempLogFlowchart.png>]
-<../graphs/sqlite3_schema.png, id=54, 274.02374pt x 223.83624pt>
-File: ../graphs/sqlite3_schema.png Graphic file (type png)
-
-<use ../graphs/sqlite3_schema.png>
-Package pdftex.def Info: ../graphs/sqlite3_schema.png used on input line 246.
-(pdftex.def)             Requested size: 191.8153pt x 156.6843pt.
-
-<TempVersusTime.PNG, id=55, 808.2195pt x 423.984pt>
-File: TempVersusTime.PNG Graphic file (type png)
- <use TempVersusTime.PNG>
-Package pdftex.def Info: TempVersusTime.PNG used on input line 264.
-(pdftex.def)             Requested size: 323.28207pt x 169.59058pt.
-
-[10 <../graphs/sqlite3_schema.png>]
-<averageFloorTemp.PNG, id=60, 693.792pt x 345.08925pt>
-File: averageFloorTemp.PNG Graphic file (type png)
-
-<use averageFloorTemp.PNG>
-Package pdftex.def Info: averageFloorTemp.PNG used on input line 272.
-(pdftex.def)             Requested size: 346.89514pt x 172.5442pt.
-
-Overfull \hbox (1.89514pt too wide) in paragraph at lines 272--273
+Overfull \hbox (17.91124pt too wide) in paragraph at lines 242--242
  [] 
  []
 
-[11 <./TempVersusTime.PNG> <./averageFloorTemp.PNG>]
-<tempSensorProgramFlow.png, id=66, 545.03625pt x 575.14874pt>
+[8 <../graphs/tempLog.png>]
+<../graphs/sqlite3_schema.png, id=53, 274.02374pt x 223.83624pt>
+File: ../graphs/sqlite3_schema.png Graphic file (type png)
+
+<use ../graphs/sqlite3_schema.png>
+Package pdftex.def Info: ../graphs/sqlite3_schema.png used on input line 262.
+(pdftex.def)             Requested size: 191.8153pt x 156.6843pt.
+
+<TempVersusTime.PNG, id=54, 808.2195pt x 423.984pt>
+File: TempVersusTime.PNG Graphic file (type png)
+ <use TempVersusTime.PNG>
+Package pdftex.def Info: TempVersusTime.PNG used on input line 280.
+(pdftex.def)             Requested size: 323.28207pt x 169.59058pt.
+
+[9 <../graphs/sqlite3_schema.png>]
+<averageFloorTemp.PNG, id=59, 693.792pt x 345.08925pt>
+File: averageFloorTemp.PNG Graphic file (type png)
+
+<use averageFloorTemp.PNG>
+Package pdftex.def Info: averageFloorTemp.PNG used on input line 288.
+(pdftex.def)             Requested size: 346.89514pt x 172.5442pt.
+
+Overfull \hbox (1.89514pt too wide) in paragraph at lines 288--289
+ [] 
+ []
+
+[10 <./TempVersusTime.PNG> <./averageFloorTemp.PNG>]
+<tempSensorProgramFlow.png, id=65, 545.03625pt x 575.14874pt>
 File: tempSensorProgramFlow.png Graphic file (type png)
 
 <use tempSensorProgramFlow.png>
-Package pdftex.def Info: tempSensorProgramFlow.png used on input line 292.
+Package pdftex.def Info: tempSensorProgramFlow.png used on input line 308.
 (pdftex.def)             Requested size: 381.52278pt x 402.60138pt.
 
-Overfull \hbox (36.52278pt too wide) in paragraph at lines 292--292
+Overfull \hbox (36.52278pt too wide) in paragraph at lines 308--308
  [] 
  []
 
 LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 297.
-[12 <./tempSensorProgramFlow.png>] [13] [14] [15] [16] [17] [18] (report.aux)
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 313.
+[11 <./tempSensorProgramFlow.png>] [12] [13] [14] [15] [16] (report.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 2755 strings out of 493634
- 43311 string characters out of 3134831
+ 2760 strings out of 493634
+ 43530 string characters out of 3134831
  107689 words of memory out of 3000000
- 6144 multiletter control sequences out of 15000+200000
+ 6148 multiletter control sequences out of 15000+200000
  6974 words of font info for 25 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  36i,10n,43p,4033b,427s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -350,9 +364,9 @@ pData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Us
 ers/Jabari/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
 l10.pfb><C:/Users/Jabari/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
 msfonts/cm/cmsy10.pfb>
-Output written on report.pdf (19 pages, 9595291 bytes).
+Output written on report.pdf (17 pages, 9888280 bytes).
 PDF statistics:
- 115 PDF objects out of 1000 (max. 8388607)
+ 110 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 76 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 

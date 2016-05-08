@@ -54,7 +54,7 @@
 				\begin{center}
 					\includegraphics[scale=.3]{bliss.png}
 						\captionsetup{labelformat=empty}
-						\caption{Google Maps screen-shot of rear of Bliss that demonstrates Raspberry Pi / Sensor distribution}
+						\caption{Google Maps screen-shot of rear of Bliss}
 				\end{center}
 			\end{figure}
 		
@@ -191,6 +191,14 @@
 		The website, and the project overall implements the Model View Controller (MVC) design pattern. This means that the Model (the data),
 		the View (GUI), and the controller (server) are all coded separately from each other. 
 		
+		\begin{figure} [H]
+			\begin{center}
+				\includegraphics[scale=.3]{../graphs/TempSensorProgramFlowOfEvents.png}
+			\end{center}
+			\captionsetup{labelformat=empty}
+			\caption{Overall flow of the temperature sensor project}
+		\end{figure}
+		
 %------------------------------------------------------------------------------------------------------------------------------------
 			
 	\newpage
@@ -214,33 +222,41 @@
   	
   	\newpage	
   		\subsection{Model}		
-  			In the MVC design pattern, the Model handles how data is stored. For this project, a combination of SQLit3, MySQL,
-  			and Python allow the data to be stored properly - with redundancy.
+  			In the MVC design pattern, the Model handles how data is stored. For this project, a combination of SQLit3, MySQL, PHP,
+  			and Python were used to implement the Model - both on the Raspberry Pi and on the LAMP server.
 
 			\subsubsection{Programming the Raspberry Pi using Python Scripts}
 				Each Pi has 3 Python scripts that allow the Pi to collect data, convert it to JavaScript Object
-				Notation (JSON) format, and return the JSON to the LAMP server. The temperature data is store locally
-				in the SQLite3 database file for redundancy. For example, in the event that data transfer is interrupted
-				during a pull request from the server, once the connection is remade, the data that was failed to send
-				can still be resent from the local copy.
+				Notation (JSON) format, and return the JSON to the LAMP server. The temperature data is stored locally
+				in the SQLite3 database. This information is then copied, and sent to the LAMP server. This is for the 
+				purpose of redundancy. For example, in the event that internet connection is lost between the client and
+				the server, as soon as the connection is restored, all of the data collected offline can sent to the server.
 
 				\begin{itemize}
 					\item {\bfseries tempLog.py}: Creates a Cronjob (scheduled task) the first time tempLog.py executes. The Cronjob 
 									  executes tempLog.py every 10 minutes. The script reads the ambient temperature
-									  in celcius and writes it to a SQLite3 database file called climate\_info.db. tempLog.py was
+									  in Celcius and writes it to a SQLite3 database file called climate\_info.db. tempLog.py was
 									  written by Heidi.
-						\begin{center}
-							\includegraphics[scale=.4]{tempLogFlowchart.png}\\
-						\end{center}
+						\begin{figure}[H]				
+							\begin{center}
+								\includegraphics[scale=.35]{../graphs/tempLog.png}\\
+							\end{center}
+							\captionsetup{labelformat=empty}
+							\caption{tempLog.py program flow}
+						\end{figure}
 						
 					\item {\bfseries index.py}: When passed a given start and stop date, index.py sets up a Flask server on the Pi and 
 									converts the data from the SQLite database into JSON objects. The JSON is put onto the Flask server in
 									preparation to be sent to the LAMP server. index.py was written by Brendan.
-					\item {\bfseries json\_push.py}: Creates the JSON post to push to data to the LAMP server. json\_push.py was written by Brendan.
+					\item {\bfseries json\_push.py}: Is responsible for communicating with the LAMP server. json\_push sends an HTTP GET request
+													 to the LAMP server for the last date that the MySQL database has for that Pi. This script
+													 then calls index.py to get and send all data after that date as a HTTP POST back to the server.
+													 json\_push.py was written by Brendan.
 				\end{itemize}
 				
 			\subsubsection{SQLite3 Database Schema (on Raspberry Pi)}	
-				Each Pi has a SQLite3 database file called climate\_info.db that stores all of the temperature data.
+				Each Pi has a SQLite3 database file called climate\_info.db that stores all of the temperature data, and device specific information
+				for identification purposes.
 				
 				\begin{center}
 					\includegraphics[scale=.7]{../graphs/sqlite3_schema.png}
@@ -361,7 +377,7 @@
 										to rely on a a few "quick" fixes here and there in the interest of time.   	
 			\end{itemize}
 			
-			\subsection{As of May 1, 2016}
+			\subsection{As of May 5, 2016}
 				\begin{itemize}
 					\item {\bfseries Brendan Lowe}:
 					\item {\bfseries Cesar Done}:
@@ -371,14 +387,20 @@
 									   functionality of changing the start time that the graph displays.  I also used Bootstrap to help with the display of 
 									   elements within the web-page.  I also worked on the JavaScript page to get the averages of the Pis.  In retrospect, I 
 									   think this group worked well together with the short amount of time given to us.  
-					\item {\bfseries Jabari Dash}:
+					\item {\bfseries Jabari Dash}: Now that we are completing the project, the project is a lot more involved. I have been working with
+												   Heidi to graph the data. Although I am a good Java programmer, I see how understanding the structure
+												   of a language (or not understanding) may impact development. I have been developing a function for 
+												   computing the average temperature from each Pi. The function works in that it computes correctly; however,
+												   it does not return the computer value. It only returns 0, or whatever static value that I tell it to 
+												   return. It is clear that this has something to do with how  JavaScript allocates memory for variables,
+												   but I do not currently know how to resolve this problem.
 					\item {\bfseries Roberto Milanese}:
 					\item {\bfseries Victoria Bottali}:			
 				\end{itemize}
 			
 %============================================================================================================================			
 	\newpage
-	\section{Obstacles \& Impacts}\label{sec:obstacles}	
+	\section{Obstacles}\label{sec:obstacles}	
 		\subsection{Networking}						
 			The largest obstacle was networking. Being on the school's ResNet network made it impossible for the Raspberry Pis to have static IP addresses 
 			because of permission denial. Static IP addresses were essential to the project because that was the only way to communicate with an individual 
@@ -409,8 +431,10 @@
 			that full comparisons cannot be made for the near 30 days of data collection, because half of it is missing for the entire 3rd floor. 
 			
 %============================================================================================================================
-	\newpage
+	%\newpage
 	\section{Conclusion}\label{sec:conclusion}
-		The project was an overall success. All main project goals were accomplished.
+		The project was an overall success. All main project goals were accomplished: 8 Raspberry Pis with temperature sensors were dispersed
+		around Bliss Hall, each Pi collected the ambient temperature every 10 minutes, the temperature was store locally in a SQLite3 database
+		and sent back to a MySQL database running on a LAMP server, and the temperature was accessed and graphed using various programming languages.
 
 \end{document}
