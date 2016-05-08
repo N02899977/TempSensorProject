@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.24)  7 MAY 2016 23:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.24)  8 MAY 2016 06:53
 entering extended mode
 **./report.tex
 (report.tex
@@ -303,55 +303,65 @@ Overfull \hbox (17.91124pt too wide) in paragraph at lines 242--242
  []
 
 [8 <../graphs/tempLog.png>]
-<../graphs/sqlite3_schema.png, id=53, 274.02374pt x 223.83624pt>
+<../graphs/sqlite3_schema.png, id=53, 444.66125pt x 293.095pt>
 File: ../graphs/sqlite3_schema.png Graphic file (type png)
 
 <use ../graphs/sqlite3_schema.png>
 Package pdftex.def Info: ../graphs/sqlite3_schema.png used on input line 262.
-(pdftex.def)             Requested size: 191.8153pt x 156.6843pt.
+(pdftex.def)             Requested size: 311.26074pt x 205.16508pt.
 
-<TempVersusTime.PNG, id=54, 808.2195pt x 423.984pt>
-File: TempVersusTime.PNG Graphic file (type png)
- <use TempVersusTime.PNG>
-Package pdftex.def Info: TempVersusTime.PNG used on input line 280.
-(pdftex.def)             Requested size: 323.28207pt x 169.59058pt.
+<../graphs/MySQL.png, id=54, 586.19pt x 352.31625pt>
+File: ../graphs/MySQL.png Graphic file (type png)
+ <use ../graphs/MySQL.png>
+Package pdftex.def Info: ../graphs/MySQL.png used on input line 268.
+(pdftex.def)             Requested size: 351.7167pt x 211.39137pt.
 
-[9 <../graphs/sqlite3_schema.png>]
-<averageFloorTemp.PNG, id=59, 693.792pt x 345.08925pt>
-File: averageFloorTemp.PNG Graphic file (type png)
-
-<use averageFloorTemp.PNG>
-Package pdftex.def Info: averageFloorTemp.PNG used on input line 288.
-(pdftex.def)             Requested size: 346.89514pt x 172.5442pt.
-
-Overfull \hbox (1.89514pt too wide) in paragraph at lines 288--289
+Overfull \hbox (6.7167pt too wide) in paragraph at lines 268--269
  [] 
  []
 
-[10 <./TempVersusTime.PNG> <./averageFloorTemp.PNG>]
-<tempSensorProgramFlow.png, id=65, 545.03625pt x 575.14874pt>
+[9 <../graphs/sqlite3_schema.png> <../graphs/MySQL.png>]
+<TempVersusTime.PNG, id=60, 808.2195pt x 423.984pt>
+File: TempVersusTime.PNG Graphic file (type png)
+ <use TempVersusTime.PNG>
+Package pdftex.def Info: TempVersusTime.PNG used on input line 281.
+(pdftex.def)             Requested size: 323.28207pt x 169.59058pt.
+
+<averageFloorTemp.PNG, id=61, 693.792pt x 345.08925pt>
+File: averageFloorTemp.PNG Graphic file (type png)
+
+<use averageFloorTemp.PNG>
+Package pdftex.def Info: averageFloorTemp.PNG used on input line 289.
+(pdftex.def)             Requested size: 346.89514pt x 172.5442pt.
+
+Overfull \hbox (1.89514pt too wide) in paragraph at lines 289--290
+ [] 
+ []
+
+[10 <./TempVersusTime.PNG> <./averageFloorTemp.PNG>] [11]
+<tempSensorProgramFlow.png, id=70, 545.03625pt x 575.14874pt>
 File: tempSensorProgramFlow.png Graphic file (type png)
 
 <use tempSensorProgramFlow.png>
-Package pdftex.def Info: tempSensorProgramFlow.png used on input line 308.
+Package pdftex.def Info: tempSensorProgramFlow.png used on input line 309.
 (pdftex.def)             Requested size: 381.52278pt x 402.60138pt.
 
-Overfull \hbox (36.52278pt too wide) in paragraph at lines 308--308
+Overfull \hbox (36.52278pt too wide) in paragraph at lines 309--309
  [] 
  []
 
 LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 313.
-[11 <./tempSensorProgramFlow.png>] [12] [13] [14] [15] [16] (report.aux)
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 314.
+[12 <./tempSensorProgramFlow.png>] [13] [14] [15] [16] [17] (report.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 2760 strings out of 493634
- 43530 string characters out of 3134831
+ 2765 strings out of 493634
+ 43634 string characters out of 3134831
  107689 words of memory out of 3000000
- 6148 multiletter control sequences out of 15000+200000
+ 6152 multiletter control sequences out of 15000+200000
  6974 words of font info for 25 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  36i,10n,43p,4033b,427s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -364,9 +374,9 @@ pData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Us
 ers/Jabari/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
 l10.pfb><C:/Users/Jabari/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
 msfonts/cm/cmsy10.pfb>
-Output written on report.pdf (17 pages, 9888280 bytes).
+Output written on report.pdf (18 pages, 10180637 bytes).
 PDF statistics:
- 110 PDF objects out of 1000 (max. 8388607)
+ 115 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 86 words of extra memory for PDF output out of 10000 (max. 10000000)
 
