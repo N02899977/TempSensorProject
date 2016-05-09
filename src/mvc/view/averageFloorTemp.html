@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>	
+<!-- Written by Jabari Dash -->
+  <head>
+  	<meta charset="utf-8">
+    <title>Average Temperature by Floor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="../controller/getTempJSON.js"></script>
+    <script type="text/javascript">
+    
+    	// Variable that determines whether to show the graph in Celcuis or Farenheit. 
+    	// c
+    	var temperatureType = 'F';
+    	
+    	// Beginning and Finish date to show temperature data from
+    	var startDate = 'Yesterday';
+    	var endDate = 'Today';
+    	
+    	var roomNumbers = ['OUTSIDE', 'B03', 108, 120, 209, 223, 308, 323];
+    	
+	 	// Load bar package (for drawing bar graphs)
+	 	google.charts.load('current', {'packages':['bar']});
+	  	google.charts.setOnLoadCallback(drawChart);
+	  
+	  	// Define drawChart function
+	  	function drawChart() {
+	  		
+	  		var averageTemp = [getAverage('B03'), getAverage('B03'),
+	  		                   getAverage(108), getAverage(120),
+	  		               	   getAverage(209), getAverage(223),
+	  		                   getAverage(308), getAverage(323)];
+
+			// Input the data based off the average of each array of temperatures for each location
+			// throughout the building
+			
+			console.log(getAverage('B03'));
+			
+		    var data = google.visualization.arrayToDataTable([
+		      	['Floor', 'North Wing', 'South Wing'],
+		    	['Basement', averageTemp[0], averageTemp[1]],
+		      	['First', averageTemp[2], averageTemp[3]],
+		      	['Second', averageTemp[4], averageTemp[5]],
+		      	['Third', averageTemp[6], averageTemp[7]]
+		   	]); 
+		
+		    var options = {
+		      chart: {
+		        title: 'Bliss Hall Average Temperature by Floor',
+		        subtitle: 'From ' + startDate + ' to ' + endDate,
+		   	},
+		      
+		      // Name the y-axis degrees
+		  	series: {
+		      	0: {axis: 'degrees'}
+		  	},
+		      
+		 	axes: {
+		    	y: {
+		      		// Labels the y-axis as the degree axis
+		      		degrees: {label: 'Degrees (' + temperatureType + ')'}		
+		      	}
+		    }
+	    };
+	
+		// Create the chart in the form of a bar chart
+	    var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+	
+		// Draw the chart passing it the data and the options that customize the chart
+	    chart.draw(data, options);
+      }
+    </script>
+  </head>
+	  
+  <body>
+  	<div id="top-nav"> </div>
+  	<div class="container" style="padding: 30px">
+    	<div id="columnchart_material" style="width: 900px; height: 500px;"> </div>
+    </div>
+    
+    <div class="container" style="padding-top: 50px" align="center">
+    	<a class="btn btn-primary btn-lg" href="https://github.com/N02870941/TempSensorProject/blob/master/src/mvc/view/averageFloorTemp.html" 
+    	target="_blank" type="button">View the Source</a>
+	</div>
+	<div class="container" style="padding-top: 30px" align="center">
+    	<a class="btn btn-primary btn-lg" href="https://github.com/N02870941/TempSensorProject/blob/master/src/mvc/controller/getTempJSON.js" 
+    	target="_blank" type="button">View the JS</a>
+	</div>
+    
+    <div class="push"> </div>   
+  	  <footer>
+  	  	<div class="container" style="padding-top: 30px">
+			 <div class="footer">
+			 	
+			 	<div class="row">
+				  <div class="col-md-3"><a href="index.html">Home</a></div>
+				  <div class="col-md-3"><a href="tempVersusTime.html">Graph 1</a></div>
+				  <div class="col-md-3"><a href="averageFloorTemp.html">Graph 2</a></div>
+				  <div class="col-md-3"><a href="../GUI_B/webapp/templates/main.html">Other Group's Page</a></div>
+				</div>
+				
+				<div style="padding: 5px"> </div>
+				
+				<div class="row">
+			 		<div class="col-md-3"><a href="https://github.com/N02870941/TempSensorProject.git">GitHub</a></div>
+				  	<div class="col-md-3"><a href="report.pdf">Report PDF</a></div>
+			 	</div>
+			 	
+			 	<hr>
+			 	
+			 	<div class="row">
+				  <div class="col-xs-12 col-md-8"><p align="left">&copy; 2016 Heidi Fritz and Jabari Dash</p>
+				  	
+				  </div>
+				  <div class="col-xs-6 col-md-4"><p align="left">Disclaimer: Some pages on this website currently are not compatible with Firefox or Safari</p></div>
+				 </div>
+				 
+			 </div>
+		 </div>
+	  </footer>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.4.0/holder.js"></script>
+    <script type="text/javascript">
+			$(function(){
+				$("#top-nav").load("../inc/nav.php", function(){
+					$(".floorgraph").addClass("active");					
+				});
+			});
+	</script>
+	
+  </body>
+</html>

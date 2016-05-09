@@ -1,8 +1,9 @@
-<h3>TempSensorProject</h3>
-<p>By request from the sustainability officer, a group of 6 students are using Raspberry Pi computers to collect temperature data from the Bliss residence hall, and compiling the data into a single database for later analysis.</p>
+# TempSensorProject
 
-<h5>Project Goal: </h5>
-<p>To collect at least a month of data, and represent this data graphically on a website.</p>
+<p>This project was to collect temperature data throughout Bliss Hall at
+the SUNY New Paltz campus and representing it graphically for later analysis
+by the Sustainability Office.</p>
 
-<h5>Current Goal: </h5>
-<p>Clone the sd cards, give the pi's static IP addresses and add them to the network.  Once this is done we can deploy the Pis.  Begin to develop our GUI and representation of the data.</p>
+<p>Read this <a href="https://github.com/N02870941/TempSensorProject/blob/master/doc/LATEX_report/report.pdf">report</a> for more information.
+
+<p>website: <a href="http://cs.newpaltz.edu/~fritzh1/TempSite/mvc/view/" target="_blank" >Temperature Sensor Data</a></p>

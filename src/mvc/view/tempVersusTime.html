@@ -1,0 +1,447 @@
+  <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+  <html>
+  	<!-- Written by Heidi Fritz -->
+  <head>
+  	<meta charset="utf-8">
+    <title>Temperature Sensor Data Site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <!-- EXTERNAL LIBS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://www.google.com/jsapi"></script>
+    <script>
+		google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      // onload callback
+      
+      var url = null;
+      var roomNumbers = ['OUTSIDE', 'B03', 108, 120, 209, 223, 308, 323];
+      var date = '2016-04-30';
+      
+      function getDataToArray(room, date) {
+      	url = 'http://cs.newpaltz.edu/~loweb/pi/api/climate.php?climate=true&building=BLI&room=' + room + '&startTime=' + date;
+      	// JSON request
+        jQuery.extend({
+        	getData: function(url){
+		        var timetemp = [];
+		        $.ajax({
+		          url: url,
+				  data: {info: 1},
+		          dataType: 'json',
+		          async: false,
+		          success: function(results){
+					results["info"].forEach(function(item) {
+				          timetemp.push(item.time);
+				          timetemp.push(item.tempF);
+				    });},
+		        });
+		    	return timetemp;
+        	}, // end getDataToArray
+        }); // end jQuery.extend
+    	var array = $.getData(url);
+    	return array;
+      }
+        
+      // starting to implement graphs that show up with button click
+      // to improve load time, but not finished
+      function drawOtherChart(dataArray, room)
+      {
+          var data = new google.visualization.DataTable();
+          
+          data.addColumn('datetime', 'Time');
+          data.addColumn('number', room);
+		    
+		   for(var i = 0; i < dataArray.length-1; i=i+2)
+          {
+          	data.addRow([
+		          new Date(dataArray[i]),
+		          parseFloat(dataArray[i+1]),
+		        ]);
+          }
+          
+          var options = {
+	      	      
+	        legend: { position: 'right' },
+	        interpolateNulls: true
+          };
+          
+          var chart = new google.visualization.LineChart(document.getElementById('chart' + room));
+
+          chart.draw(data, options);
+          
+      }
+        
+      function drawChart() {
+        
+      	
+        
+        var DataB03 = getDataToArray('B03', date);
+        //console.log(DataB03);
+        
+        var Data108 = getDataToArray(108, date);
+        //console.log(Data108);
+        
+        var Data120 = getDataToArray(120, date);
+        //console.log(Data120);        
+        
+        var Data209 = getDataToArray(209, date);
+        //console.log(Data209);
+        
+        var Data223 = getDataToArray(223, date);
+        //console.log(Data223);
+        
+        date = '2016-04-08';
+        
+        var Data308 = getDataToArray(308, date);
+        //console.log(Data308);
+        
+        var Data323 = getDataToArray(323, date);
+        //console.log(Data323);
+        
+        var DataOUT = getDataToArray('OUTSIDE', date);
+        //console.log(DataOUT);
+        
+        var allData = [];
+        allData[0] = DataB03;
+        allData[1] = Data108;
+        allData[2] = Data120;
+		//console.log(allData);
+        
+		  // Basement03 Graph
+          var data1 = new google.visualization.DataTable();
+          
+          data1.addColumn('datetime', 'Time');
+          data1.addColumn('number', 'B03');
+		    
+		   for(var i = 0; i < DataB03.length-1; i=i+2)
+          {
+          	data1.addRow([
+		          new Date(DataB03[i]),
+		          parseFloat(DataB03[i+1]),
+		        ]);
+          }
+          
+          // Room 108 Graph
+          var data2 = new google.visualization.DataTable();
+    	  
+          data2.addColumn('datetime', 'Time');
+          data2.addColumn('number', '108');
+		    
+		   for(var i = 0; i < Data108.length-1; i=i+2)
+          {
+          	data2.addRow([
+		          new Date(Data108[i]),
+		          parseFloat(Data108[i+1]),
+		        ]);
+          }
+			
+		  // Room 120 Graph
+          var data3 = new google.visualization.DataTable();
+			
+    	  
+          data3.addColumn('datetime', 'Time');
+          data3.addColumn('number', '120');
+		    
+		   for(var i = 0; i < Data120.length-1; i=i+2)
+          {
+          	data3.addRow([
+		          new Date(Data120[i]),
+		          parseFloat(Data120[i+1]),
+		        ]);
+          }
+          
+          // Room 209 Graph
+          var data4 = new google.visualization.DataTable();
+    	  
+          data4.addColumn('datetime', 'Time');
+          data4.addColumn('number', '209');
+		    
+		   for(var i = 0; i < Data209.length-1; i=i+2)
+          {
+          	data4.addRow([
+		          new Date(Data209[i]),
+		          parseFloat(Data209[i+1]),
+		        ]);
+          }
+          
+          // Room 223 Graph
+          var data5 = new google.visualization.DataTable();
+    	  
+          data5.addColumn('datetime', 'Time');
+          data5.addColumn('number', '223');
+		    
+		   for(var i = 0; i < Data223.length-1; i=i+2)
+          {
+          	data5.addRow([
+		          new Date(Data223[i]),
+		          parseFloat(Data223[i+1]),
+		        ]);
+          }
+          
+          // Room 308 Graph
+          var data6 = new google.visualization.DataTable();
+    	  
+          data6.addColumn('datetime', 'Time');
+          data6.addColumn('number', '308');
+		    
+		   for(var i = 0; i < Data308.length-1; i=i+2)
+          {
+          	data6.addRow([
+		          new Date(Data308[i]),
+		          parseFloat(Data308[i+1]),
+		        ]);
+          }
+          
+          // Room 323 Graph
+          var data7 = new google.visualization.DataTable();
+    	  
+          data7.addColumn('datetime', 'Time');
+          data7.addColumn('number', '323');
+		    
+		   for(var i = 0; i < Data323.length-1; i=i+2)
+          {
+          	data7.addRow([
+		          new Date(Data323[i]),
+		          parseFloat(Data323[i+1]),
+		        ]);
+          }
+          
+          // Outside Graph
+          var data8 = new google.visualization.DataTable();
+    	  
+          data8.addColumn('datetime', 'Time');
+          data8.addColumn('number', 'Outside');
+		    
+		   for(var i = 0; i < DataOUT.length-1; i=i+2)
+          {
+          	data8.addRow([
+		          new Date(DataOUT[i]),
+		          parseFloat(DataOUT[i+1]),
+		        ]);
+          }
+          
+          // join tables to match time scales
+          //var joinData1 = google.visualization.data.join(data1, data2, 'full', [[0, 0]], [1], [1]);
+          //var joinData2 = google.visualization.data.join(joinData1, data2, 'full', [[0, 0]], [1], [1]);
+          
+          // Basement03 Graph
+          var allDatachart = new google.visualization.DataTable();
+          
+          allDatachart.addColumn('datetime', 'Time');
+          allDatachart.addColumn('number', 'B03');
+          allDatachart.addColumn('number', '108');
+          allDatachart.addColumn('number', '120');
+          allDatachart.addColumn('number', '209');
+          allDatachart.addColumn('number', '223');
+          //allDatachart.addColumn('number', '308');
+          //allDatachart.addColumn('number', '323');
+		    
+		   for(var i = 0; i < DataB03.length-1; i=i+2)
+          {
+          	allDatachart.addRow([
+		          new Date(DataB03[i]),
+		          parseFloat(DataB03[i+1]),
+		          parseFloat(Data108[i+1]),
+		          parseFloat(Data120[i+1]),
+		          parseFloat(Data209[i+1]),
+		          parseFloat(Data223[i+1]),
+		          //parseFloat(Data308[i+1]),
+		          //parseFloat(Data323[i+1]),
+		        ]);
+          }
+
+          //var chart = new google.visualization.LineChart($('#chart').get(0));
+          var options = {
+	      	      
+	        legend: { position: 'right' },
+	        interpolateNulls: true
+          };
+
+        //var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        //chart.draw(joinData1, options);
+        
+        var chartB03 = new google.visualization.LineChart(document.getElementById('chart_B03'));
+
+        chartB03.draw(data1, options);
+        
+        var chart108 = new google.visualization.LineChart(document.getElementById('chart_108'));
+
+        chart108.draw(data2, options);
+
+        var chart120 = new google.visualization.LineChart(document.getElementById('chart_120'));
+
+        chart120.draw(data3, options);
+        
+        var chart209 = new google.visualization.LineChart(document.getElementById('chart_209'));
+
+        chart209.draw(data4, options);
+        
+        var chart223 = new google.visualization.LineChart(document.getElementById('chart_223'));
+
+        chart223.draw(data5, options);
+        
+        var chart308 = new google.visualization.LineChart(document.getElementById('chart_308'));
+
+        chart308.draw(data6, options);
+        
+        var chart323 = new google.visualization.LineChart(document.getElementById('chart_323'));
+
+        chart323.draw(data7, options);
+        
+        var chartOUT = new google.visualization.LineChart(document.getElementById('chart_OUT'));
+
+        chartOUT.draw(data8, options);
+        
+        var chartallData = new google.visualization.LineChart(document.getElementById('chart_all'));
+
+        chartallData.draw(allDatachart, options);
+
+      }
+
+      // load chart lib
+      google.load('visualization', '1', {
+        packages: ['corechart']
+      });
+
+      // call drawChart once google charts is loaded
+      google.setOnLoadCallback(drawChart);
+      
+      //set Date variable to text box values in browser not working(unused)
+      function setDate() { 
+		var newYear = parseFloat(document.getElementById("textbox1").value);
+		var newMonth = parseFloat(document.getElementById("textbox2").value);
+		var newDay = parseFloat(document.getElementById("textbox3").value);
+		
+		date=newYear + '-' + newMonth+ '-' + newDay;
+		console.log(date);
+		 }
+		 
+		//set Date on button click not working(unused)
+		$(document).ready(function(){
+		    //On button click, load new data
+		    $(".submitDate").click(function(){
+		        setDate();
+		        drawChart();
+		    
+		    });
+		});
+      
+    </script>
+  </head>
+  <body>
+  	<div id="top-nav"> </div>
+  	
+	<!-- joined data chart. couldn't get more arrays to join -->
+	<!--<div id="curve_chart" style="width: 100%; height: 500px;padding-top: 15px"></div>-->
+	<div class="container" style="padding-top: 30px">
+		
+		<div class="row">
+		  	  <div class="col-xs-2">
+			    <input id="textbox1" type="text" class="form-control" placeholder="Year">
+			  </div>
+			  <div class="col-xs-2">
+			    <input id="textbox2" type="text" class="form-control" placeholder="Month">
+			  </div>
+			  <div class="col-xs-2">
+			    <input id="textbox3" type="text" class="form-control" placeholder="Day">
+			  </div>
+			  <div class="col-xs-2">
+			    <input class="submitDate" type="submit" value="Submit">
+			  </div>
+		</div>
+		
+		<hr>
+		
+		<h4>All Pi's Temperatures</h4>
+		<h5>From April 30, 2016 to May 5, 2016</h5>
+		<div id="chart_all" style="width: 100%; height: 500px"> </div>
+		
+			<h4>Basement Temperature</h4>
+			<h5>From April 30, 2016 to May 5, 2016</h5>
+		  <div id="chart_B03" style="width: 100%; height: 500px;padding-top: 15px"> </div>
+		  <h4>Room 108 Temperature</h4>
+			<h5>From April 30, 2016 to May 5, 2016</h5>
+		  <div id="chart_108" style="width: 100%; height: 500px;padding-top: 15px"> </div>
+		  <h4>Room 120 Temperature</h4>
+			<h5>From April 30, 2016 to May 5, 2016</h5>
+		  <div id="chart_120" style="width: 100%; height: 500px;padding-top: 15px"> </div>
+		  <h4>Room 209 Temperature</h4>
+			<h5>From April 30, 2016 to May 5, 2016</h5>
+		  <div id="chart_209" style="width: 100%; height: 500px;padding-top: 15px"> </div>
+		  <h4>Room 223 Temperature</h4>
+			<h5>From April 30, 2016 to May 5, 2016</h5>
+		  <div id="chart_223" style="width: 100%; height: 500px;padding-top: 15px"> </div>
+		  <h4>Room 308 Temperature</h4>
+			<h5>From April 8, 2016 to April 19, 2016</h5>
+		  <div id="chart_308" style="width: 100%; height: 500px;padding-top: 15px"> </div>
+		  <h4>Room 323 Temperature</h4>
+			<h5>From April 8, 2016 to April 16, 2016</h5>
+		  <div id="chart_323" style="width: 100%; height: 500px;padding-top: 15px"> </div>
+		  
+		  <h4>Outside Temperature</h4>
+			<h5>From April 15, 2016 to May 5, 2016</h5>
+		  <div id="chart_OUT" style="width: 100%; height: 500px;padding-top: 15px"> </div>
+		  
+		</div>
+		
+		<div class="container" style="padding-top: 50px" align="center">
+	    	<a class="btn btn-primary btn-lg" href="https://github.com/N02870941/TempSensorProject/blob/master/src/mvc/view/tempVersusTime.html" 
+	    	target="_blank" type="button">View the Source</a>
+    	</div>
+	
+	
+	<!--<input type="text" name="textbox1" id="textbox1" />
+	<input type="text" name="textbox2" id="textbox2" />
+	<input type="text" name="textbox3" id="textbox3" />
+	<a class="submitDate" href="#">Set Date</a>-->
+	
+    <div class="push"> </div>
+  	  <footer>
+  	  	<div class="container" style="padding-top: 30px">
+			 <div class="footer">
+			 	
+			 	<div class="row">
+				  <div class="col-md-3"><a href="index.html">Home</a></div>
+				  <div class="col-md-3"><a href="tempVersusTime.html">Graph 1</a></div>
+				  <div class="col-md-3"><a href="averageFloorTemp.html">Graph 2</a></div>
+				  <div class="col-md-3"><a href="../GUI_B/webapp/templates/main.html">Other Group's Page</a></div>
+				</div>
+				
+				<div style="padding: 5px"> </div>
+				
+				<div class="row">
+			 		<div class="col-md-3"><a href="https://github.com/N02870941/TempSensorProject.git">GitHub</a></div>
+				  	<div class="col-md-3"><a href="report.pdf">Report PDF</a></div>
+			 	</div>
+			 	
+			 	<hr>
+			 	
+			 	<div class="row">
+				  <div class="col-xs-12 col-md-8"><p align="left">&copy; 2016 Heidi Fritz and Jabari Dash</p>
+				  	
+				  </div>
+				  <div class="col-xs-6 col-md-4"><p align="left">Disclaimer: Some pages on this website currently are not compatible with Firefox or Safari</p></div>
+				 </div>
+				 
+			 </div>
+		 </div>
+	  </footer>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.4.0/holder.js"></script>
+    <script type="text/javascript">
+			$(function(){
+				$("#top-nav").load("../inc/nav.php", function(){
+					$(".temptime").addClass("active");					
+				});
+			});
+	</script>
+  </body>
+</html>
